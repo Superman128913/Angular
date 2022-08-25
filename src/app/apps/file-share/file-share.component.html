@@ -1,0 +1,21 @@
+<!-- Share -->
+<div class="container-bg">
+    <div class="container-fluid p-0">
+        <div class="row no-gutters flex-nowrap">
+
+            <!-- Sidebar -->
+            <div class="col-auto">
+                <app-sidebar [logo]=this.fileShareWordmark
+                             [parentClass]="fileShareClass"
+                             [menu]=this.sidebarMenuItems>
+                </app-sidebar>
+            </div>
+
+            <!-- Dynamic Components -->
+            <div class="col">
+                <router-outlet></router-outlet>
+            </div>
+
+        </div>
+    </div>
+</div>

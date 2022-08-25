@@ -1,0 +1,144 @@
+<!-- Breadcrumb -->
+<app-breadcrumb></app-breadcrumb>
+
+<!-- Company Dashboard -->
+<div class="container-xl p-3">
+
+    <!-- Message -->
+    <!--        <div class="row p-3">-->
+    <!--            <h2>{{greeting}}</h2>-->
+    <!--        </div>-->
+
+    <!-- Cards -->
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+
+        <!-- Divisions -->
+        <div class="col mb-3">
+
+            <!-- Card -->
+            <div class="card flex-row h-100">
+
+                <!-- SVG -->
+                <div class="d-flex align-items-center m-3">
+                    <app-company-svg svgSize="lg"></app-company-svg>
+                </div>
+
+                <!-- Body -->
+                <div class="d-flex flex-column flex-grow-1">
+                    <div class="card-body my-3 mr-3 p-0">
+
+                        <!-- Title -->
+                        <h5 class="card-title m-0">
+                            Divisions
+                        </h5>
+
+                        <!-- Text -->
+                        <p class="card-text">
+                            Manage company divisions
+                            <a [routerLink]="[companyDivisionsPath]" class="stretched-link"></a>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Users -->
+        <div class="col mb-3">
+
+            <!-- Card -->
+            <div class="card flex-row h-100">
+
+                <!-- SVG -->
+                <div class="d-flex align-items-center m-3">
+                    <app-users-svg></app-users-svg>
+                </div>
+
+                <!-- Body -->
+                <div class="d-flex flex-column flex-grow-1">
+                    <div class="card-body my-3 mr-3 p-0">
+
+                        <!-- Title -->
+                        <h5 class="card-title m-0">
+                            Users
+                        </h5>
+
+                        <!-- Text -->
+                        <p class="card-text">
+                            Manage company users
+                            <a [routerLink]="[companyUsersPath]" class="stretched-link"></a>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Domains -->
+        <div class="col mb-3">
+
+            <!-- Card -->
+            <div class="card flex-row h-100">
+
+                <!-- SVG -->
+                <div class="d-flex align-items-center m-3">
+                    <app-website-svg svgSize="lg"></app-website-svg>
+                </div>
+
+                <!-- Body -->
+                <div class="d-flex flex-column flex-grow-1">
+                    <div class="card-body my-3 mr-3 p-0">
+
+                        <!-- Title -->
+                        <h5 class="card-title m-0">
+                            Domains
+                        </h5>
+
+                        <!-- Text -->
+                        <p class="card-text">
+                            Manage company domains
+                            <a [routerLink]="[companyDomainsPath]" class="stretched-link"></a>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings -->
+        <div class="col mb-3">
+
+            <!-- Card -->
+            <div class="card flex-row h-100">
+
+                <!-- SVG -->
+                <div class="d-flex align-items-center m-3">
+                    <app-settings-svg></app-settings-svg>
+                </div>
+
+                <!-- Body -->
+                <div class="d-flex flex-column flex-grow-1">
+                    <div class="card-body my-3 mr-3 p-0">
+
+                        <!-- Title -->
+                        <h5 class="card-title m-0">
+                            Settings
+                        </h5>
+
+                        <!-- Text -->
+                        <p class="card-text">
+                            Manage company settings
+                            <a [routerLink]="[companySettingsPath]" class="stretched-link"></a>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- App Section -->
+    <hr/>
+    <app-apps-section></app-apps-section>
+
+</div>

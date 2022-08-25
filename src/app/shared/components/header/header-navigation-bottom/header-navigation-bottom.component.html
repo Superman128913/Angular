@@ -1,0 +1,81 @@
+<nav class="navbar navbar-dark flex-fill m-0 p-0">
+    <div class="container-fluid m-0 p-0 flex-nowrap">
+
+        <!--        <div class="navbar-nav flex-row ml-3">-->
+        <!--            <li *ngFor="let productCategory of productCategories">-->
+        <!--                <a [routerLink]="productCategory.url" class="nav-link d-inline-flex m-0 py-0 pl-0 pr-3">-->
+        <!--                    <span class="m-0">{{ productCategory.title }}</span>-->
+        <!--                </a>-->
+        <!--            </li>-->
+        <!--        </div>-->
+
+        <!-- App Section -->
+        <div class="flex-fill position-relative">
+            <div class="navbar-nav flex-row ml-3">
+
+                <!-- Traceability -->
+                <a [routerLink]="traceabilityPath"
+                   [title]="traceabilityTitle"
+                   class="nav-link d-inline-flex align-items-center m-0 py-0 pl-0 pr-3">
+
+                    <!-- SVG -->
+                    <app-traceability-svg [svgSize]="'sm'"></app-traceability-svg>
+
+                    <!-- Title -->
+                    <span class="px-1 m-0 text-nowrap">
+                        Traceability
+                    </span>
+
+                    <!--TODO - replace with app logo-->
+                    <!--<img id="app-logo-lg"-->
+                    <!--[alt]="traceabilityLogo.alt"-->
+                    <!--[src]="traceabilityLogo.url"-->
+                    <!--[title]="traceabilityLogo.title">-->
+                </a>
+
+                <!-- File Share -->
+                <a [routerLink]="fileSharePath"
+                   [title]="fileShareTitle"
+                   class="nav-link d-inline-flex align-items-center m-0 py-0 pl-0 pr-3">
+
+                    <!-- SVG -->
+                    <app-file-share-svg [svgSize]="'sm'"></app-file-share-svg>
+
+                    <!-- Title -->
+                    <span class="px-1 m-0 text-nowrap">
+                        File Share
+                    </span>
+                </a>
+
+                <!-- Contracts Manager -->
+                <!--                <a [routerLink]="contractsManagerPath"-->
+                <!--                   [title]="contractsManagerTitle"-->
+                <!--                   class="nav-link d-inline-flex align-items-center m-0 py-0 pl-0 pr-3">-->
+
+                <!-- SVG -->
+                <!--                <app-file-share-svg [svgSize]=""></app-file-share-svg>-->
+
+                <!--                 Title -->
+                <!--                    <span class="px-1 m-0 text-nowrap">-->
+                <!--                        Contracts Manager-->
+                <!--                    </span>-->
+                <!--                </a>-->
+
+                <!-- Blockchain -->
+                <a [routerLink]="blockchainPath"
+                   [title]="blockchainTitle"
+                   class="nav-link d-inline-flex align-items-center m-0 py-0 pl-0 pr-3">
+
+                    <!-- SVG -->
+                    <app-blockchain-svg [svgSize]="'sm'"></app-blockchain-svg>
+
+                    <!-- Title -->
+                    <span class="px-1 m-0 text-nowrap">
+                        Blockchain
+                    </span>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</nav>

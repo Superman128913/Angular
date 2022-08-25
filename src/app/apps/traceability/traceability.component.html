@@ -1,0 +1,18 @@
+<!-- Traceability -->
+<div class="container-fluid p-0">
+    <div class="row no-gutters flex-nowrap">
+
+        <!-- Sidebar -->
+        <div class="col-auto">
+            <app-sidebar [logo]=this.traceabilityLogo
+                         [parentClass]="traceabilityClass"
+                         [menu]=this.sidebarMenuItems>
+            </app-sidebar>
+        </div>
+
+        <!-- Dynamic Components -->
+        <div class="col">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

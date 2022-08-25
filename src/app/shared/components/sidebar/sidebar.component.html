@@ -1,0 +1,177 @@
+<!-- Sidebar  -->
+<nav class="nav flex-column vh-100 min-vh-100 p-0 overflow-hidden">
+
+    <!-- Main Branding -->
+    <div class="row justify-content-center no-gutters"
+         id="main-branding">
+        <div class="col-auto col-md">
+            <a [routerLink]="[homePath]"
+               class="m-0 p-0">
+                <img [alt]="this.logo.alt"
+                     [src]="this.logo.url"
+                     [title]="this.logo.title"
+                     id="main-logo-lg"
+                     class="m-auto">
+                <img [alt]="this.logo.alt"
+                     [src]="defaultLogo.url"
+                     [title]="this.logo.title"
+                     id="main-logo-sm">
+            </a>
+        </div>
+    </div>
+
+    <!-- Menu -->
+    <div class="row justify-content-center m-0"
+         id="menu">
+        <div class="col-auto col-md">
+            <ul *ngIf="menu"
+                class="list-unstyled">
+                <li *ngFor="let item of menu"
+                    routerLinkActive="active">
+                    <a [routerLink]="item.path"
+                       class="d-flex p-2">
+                        <i [class]="item.image"
+                           class="d-inline"></i>
+                        <span class="px-2">
+                            {{item.title}}
+                        </span>
+                    </a>
+                </li>
+                <li class="dropdown-divider"></li>
+            </ul>
+        </div>
+    </div>
+
+        <!-- Applications -->
+        <div class="row justify-content-center m-0"
+             id="applications">
+            <div class="col-auto col-md">
+                <h6 class="m-0 pl-2 pb-2 text-uppercase">
+                    Applications
+                </h6>
+                <ul class="list-unstyled">
+                    <li>
+                        <a *ngIf="!router.url.startsWith(traceabilityPath)"
+                           [routerLink]="traceabilityPath"
+                           class="d-flex p-2">
+                            <!-- SVG -->
+                            <app-traceability-svg [svgSize]="'xs'"></app-traceability-svg>
+                            <!-- Title -->
+                            <span class="px-2">
+                                Traceability
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a *ngIf="!router.url.startsWith(fileSharePath)"
+                           [routerLink]="fileSharePath"
+                           class="d-flex p-2">
+                            <!-- SVG -->
+                            <app-file-share-svg [svgSize]="'xs'"></app-file-share-svg>
+                            <!-- Title -->
+                            <span class="px-2">
+                                File Share
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a *ngIf="!router.url.startsWith(blockchainPath)"
+                           [routerLink]="blockchainPath"
+                           class="d-flex p-2">
+                            <!-- SVG -->
+                            <app-blockchain-svg [svgSize]="'xs'"></app-blockchain-svg>
+                            <!-- Title -->
+                            <span class="px-2">
+                                Blockchain
+                            </span>
+                        </a>
+                    </li>
+                    <!--                    <li>-->
+                    <!--                        <a [routerLink]="contractsManagerPath"-->
+                    <!--                           class="d-flex p-2">-->
+                    <!--                            <i class="bi bi-file-earmark-check d-inline"></i>-->
+                    <!--                            <span class="px-2">-->
+                    <!--                                Contract Manager-->
+                    <!--                            </span>-->
+<!--                        </a>-->
+<!--                    </li>-->
+                    <li class="dropdown-divider"></li>
+                </ul>
+            </div>
+        </div>
+
+    <!-- Dynamically fill in empty space -->
+    <div class="row flex-grow-1 no-gutters">
+        <div class="col-auto col-md">
+        </div>
+    </div>
+
+    <!-- Division -->
+    <div class="row no-gutters justify-content-center"
+         *ngFor="let division of divisions"
+         id="division">
+        <div *ngIf="division.id === selectedDivisionId"
+             class="col-auto col-md">
+
+            <!-- Heading -->
+            <div class="row m-0">
+                <div class="col">
+                    <!-- Heading -->
+                    <h6 class="m-0 pb-2 text-uppercase">
+                        Division
+                    </h6>
+
+                    <!-- Divider -->
+                    <div class="dropdown-divider"></div>
+                </div>
+            </div>
+
+            <!-- Dropdown -->
+            <app-sidebar-division-dropdown (selectedDivisionId)="setSelectedDivisionId($event)"
+                                           [defaultDivisionId]="defaultDivisionId"
+                                           [division]="division"
+                                           [divisions]="divisions"
+                                           [parentClass]="parentClass"></app-sidebar-division-dropdown>
+        </div>
+    </div>
+
+    <!-- User -->
+    <div class="row no-gutters justify-content-center">
+        <div class="col-auto col-md">
+
+            <!-- Dropdown -->
+            <app-sidebar-user-dropdown></app-sidebar-user-dropdown>
+        </div>
+    </div>
+
+    <!-- Logo -->
+    <div class="row justify-content-center text-center no-gutters"
+         id="short-branding">
+        <div class="col-auto col-md">
+            <a [routerLink]="[homePath]"
+               class="m-0 p-0">
+                <img [alt]="defaultLogo.alt"
+                     [src]="defaultLogo.url"
+                     [title]="defaultLogo.title"
+                     id="short-logo">
+            </a>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="row justify-content-center ml-0 mr-0 mt-0 mb-3 text-center no-gutters"
+         id="copyright">
+        <div class="col-auto col-md">
+            <span>
+                <small>
+                    &#169; {{ copyrightYear }}
+                </small>
+            </span>
+            <span id="company">
+                <small>
+                    Aeroplicity
+                </small>
+            </span>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,1 @@
+{"version":3,"file":"register.routes.js","sourceRoot":"","sources":["../../../../../src/app/register/register.routes.ts"],"names":[],"mappings":"AAAA,cAAc;AACd,OAAO,EAAC,iBAAiB,EAAC,MAAM,sBAAsB,CAAC;AAEvD,MAAM,CAAC,MAAM,eAAe,GAAG;IAC3B;QACI,IAAI,EAAE,EAAE;QACR,SAAS,EAAE,iBAAiB;KAC/B;CACJ,CAAC"}

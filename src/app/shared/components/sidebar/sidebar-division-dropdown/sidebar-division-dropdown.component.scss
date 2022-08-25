@@ -1,0 +1,93 @@
+@import "../../../../../styles/custom-variables";
+
+// smaller than medium breakpoint
+@media (max-width: 768px) {
+
+  #workspace-lg {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s,
+    opacity 0.5s ease;
+  }
+
+  #workspace-sm {
+    display: inline-block;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s,
+    opacity 0.5s ease;
+  }
+}
+
+// larger than medium breakpoint
+@media (min-width: 768px) {
+
+  #workspace-lg {
+    display: inline-block;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s,
+    opacity 0.5s ease;
+  }
+
+  #workspace-sm {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s,
+    opacity 0.5s ease;
+  }
+}
+
+.btn-outline {
+  color: $alabaster;
+  border-color: $alabaster;
+
+  &:hover {
+    color: $red_ribbon;
+    border-color: $red_ribbon;
+    transition: 0.5s ease;
+  }
+
+  &:focus {
+    color: $red_ribbon;
+    border-color: $red_ribbon;
+  }
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.dropdown-item {
+  cursor: pointer;
+  font-size: 0.9em;
+  line-height: 1.5em;
+
+  &:hover {
+    color: $red_ribbon;
+    border-radius: 0.25em;
+    transition: 0.5s ease;
+
+    // show "set as default" on hover of dropdown-item
+    .set-default {
+      color: $woodsmoke;
+      transition: 0.5s ease;
+
+      &:hover {
+        color: $red_ribbon;
+        transition: 0.5s ease;
+      }
+    }
+  }
+
+  &:active {
+    color: $alabaster;
+    border-radius: 0.25em;
+  }
+}
+
+.set-default {
+  color: transparent;
+}

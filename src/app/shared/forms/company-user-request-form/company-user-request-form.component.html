@@ -1,0 +1,71 @@
+<!-- Form -->
+<form (ngSubmit)="createCompanyUserRequest(companyUserRequestForm.value)"
+      [formGroup]="companyUserRequestForm"
+      class="mx-auto">
+
+    <!-- Domain -->
+    <div class="form-group row">
+
+        <!-- Input Group -->
+        <div class="input-group col">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <span class="input-group-text rounded-left justify-content-center">
+                    <app-website-svg svgSize="sm"></app-website-svg>
+                </span>
+            </div>
+
+            <!-- Input -->
+            <input [formControlName]="'domain'"
+                   [ngClass]="{ 'is-invalid': formControls['domain'].invalid && (formControls['domain'].touched || formControls['domain'].dirty) }"
+                   autocomplete="on"
+                   class="form-control rounded-right"
+                   name="domain"
+                   placeholder="aeroplicity.com"
+                   type="text">
+
+            <!-- Invalid Feedback -->
+            <div *ngIf="formControls['domain'].invalid && (formControls['domain'].touched || formControls['domain'].dirty)"
+                 class="invalid-feedback">
+                <div *ngIf="formControls['domain'].errors?.required">
+                    A domain name is required.
+                </div>
+                <div *ngIf="formControls['domain'].errors?.pattern">
+                    Please provide a valid domain name.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="form-group">
+        <!-- Join -->
+        <button [disabled]="companyUserRequestForm.invalid"
+                class="btn btn-primary btn-block rounded"
+                type="submit">
+            Join
+        </button>
+    </div>
+
+    <!-- Note -->
+    <p class="my-3">
+        By clicking the "Join" button, you are requesting to join an existing organization. All organization admins will be notified of your request to join
+        and one will have to approve you before you gain access.
+    </p>
+
+    <!-- Break -->
+    <hr/>
+
+    <!-- Links -->
+    <div class="mt-3">
+        <!-- Register -->
+        <p>
+            Want to to register a new organization? <a [routerLink]="[companyRegisterPath]">Register</a>
+        </p>
+    </div>
+
+    <!-- Dev Tools -->
+    <app-company-dev-tools></app-company-dev-tools>
+
+</form>

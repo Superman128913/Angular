@@ -1,0 +1,79 @@
+@import "../../styles/custom-variables";
+
+// smaller than small breakpoint
+@media (max-width: 576px) {
+
+}
+
+// larger than small breakpoint
+@media (min-width: 576px) {
+
+}
+
+.container-fluid {
+  background-color: $alabaster;
+}
+
+#header {
+  background-color: $woodsmoke_light;
+  color: $alabaster;
+  padding-top: 10em;
+  padding-bottom: 10em;
+}
+
+#middle {
+  color: $woodsmoke;
+  padding-top: 5em;
+  padding-bottom: 5em;
+}
+
+#platform {
+  padding-bottom: 5em;
+}
+
+#traceability {
+  padding-bottom: 5em;
+}
+
+#file-share {
+  padding-bottom: 5em;
+}
+
+#footer {
+  background-color: $woodsmoke_light;
+  color: $alabaster;
+  margin-top: 5em;
+  padding-top: 5em;
+  padding-bottom: 5em;
+}
+
+.header {
+  background-color: $woodsmoke;
+  color: $alabaster;
+  margin-bottom: 5em;
+  padding-top: 5em;
+  padding-bottom: 5em;
+}
+
+.btn {
+  height: 50px;
+}
+
+.red_ribbon {
+  color: $red_ribbon;
+}
+
+.woodsmoke {
+  background-color: $woodsmoke;
+  color: $alabaster;
+}
+
+.woodsmoke_lighter {
+  background-color: $woodsmoke_lighter;
+  color: $alabaster;
+}
+
+.alabaster {
+  background-color: $alabaster;
+  color: $woodsmoke;
+}

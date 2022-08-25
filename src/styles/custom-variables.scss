@@ -1,0 +1,33 @@
+// Aeroplicity
+
+// Colors
+$red_ribbon: #CE0A11;
+$woodsmoke: #242121;
+$woodsmoke_light: #333333;
+$woodsmoke_lighter: #595959;
+$alabaster: #F0F0F0;
+$alabaster_light: #FFFFFF;
+
+$skin_russet: #8D5524;
+$skin_peru: #C68642;
+$skin_fawn: #E0AC69;
+$skin_mellow_apricot: #F1C27D;
+$skin_navajo_white: #FFDBAC;
+
+// Theme
+$theme-colors: (
+        "primary": $red_ribbon,
+        "secondary": $woodsmoke,
+  //"success":    ..,
+  //"info":       ..,
+  //"warning":    ..,
+  //"danger":     ..,
+        "light": $alabaster,
+        "dark": $woodsmoke
+);
+
+// Font
+$roboto: 'Roboto', sans-serif;
+// Fonts
+$font-family-base: $roboto;
+$font-family-sans-serif: $roboto;

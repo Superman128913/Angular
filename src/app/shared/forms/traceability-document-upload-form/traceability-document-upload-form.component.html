@@ -1,0 +1,124 @@
+<!-- Form -->
+<form (ngSubmit)="uploadTraceabilityDocument(traceabilityDocumentUploadForm.value)"
+      [formGroup]="traceabilityDocumentUploadForm"
+      class="mx-auto">
+
+    <!-- Part Number -->
+    <div class="form-group row">
+
+        <!-- Input Group -->
+        <div class="input-group col">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <!-- SVG -->
+                <span class="input-group-text rounded-left justify-content-center">
+                    <app-part-number-svg></app-part-number-svg>
+                </span>
+            </div>
+
+            <!-- Input -->
+            <input [ngClass]="{ 'is-invalid': formControls['partNumber'].invalid && (formControls['partNumber'].touched || formControls['partNumber'].dirty) }"
+                   class="form-control rounded-right"
+                   [formControlName]="'partNumber'"
+                   name="partNumber"
+                   placeholder="Part Number"
+                   required
+                   autocomplete="on"
+                   type="text">
+
+            <!-- Invalid Feedback -->
+            <div *ngIf="formControls['partNumber'].invalid && (formControls['partNumber'].touched || formControls['partNumber'].dirty)"
+                 class="invalid-feedback">
+                <div *ngIf="formControls['partNumber'].errors?.required">
+                    A part number is required.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Serial Number -->
+    <div class="form-group row">
+
+        <!-- Input Group -->
+        <div class="input-group col">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <!-- SVG -->
+                <span class="input-group-text rounded-left justify-content-center">
+                    <app-serial-number-svg></app-serial-number-svg>
+                </span>
+            </div>
+
+            <!-- Input -->
+            <input [ngClass]="{ 'is-invalid': formControls['serialNumber'].invalid && (formControls['serialNumber'].touched || formControls['serialNumber'].dirty) }"
+                   class="form-control rounded-right"
+                   [formControlName]="'serialNumber'"
+                   name="serialNumber"
+                   placeholder="Serial Number"
+                   autocomplete="on"
+                   type="text">
+
+            <!-- Invalid Feedback -->
+            <div *ngIf="formControls['serialNumber'].invalid && (formControls['serialNumber'].touched || formControls['serialNumber'].dirty)"
+                 class="invalid-feedback">
+                <div *ngIf="formControls['serialNumber'].errors?.required">
+                    A serial or lot number is required.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lot Number -->
+    <div class="form-group row">
+
+        <!-- Input Group -->
+        <div class="input-group col">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <!-- SVG -->
+                <span class="input-group-text rounded-left justify-content-center">
+                    <app-part-number-svg></app-part-number-svg>
+                </span>
+            </div>
+
+            <!-- Input -->
+            <input [ngClass]="{ 'is-invalid': formControls['lotNumber'].invalid && (formControls['lotNumber'].touched || formControls['lotNumber'].dirty) }"
+                   class="form-control rounded-right"
+                   [formControlName]="'lotNumber'"
+                   name="lotNumber"
+                   placeholder="Lot Number"
+                   autocomplete="on"
+                   type="text">
+
+            <!-- Invalid Feedback -->
+            <div *ngIf="formControls['lotNumber'].invalid && (formControls['lotNumber'].touched || formControls['lotNumber'].dirty)"
+                 class="invalid-feedback">
+                <div *ngIf="formControls['lotNumber'].errors?.required">
+                    A serial or lot number is required.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="form-group m-0">
+        <!-- Upload -->
+        <button *ngIf="!uploading"
+                [disabled]="traceabilityDocumentUploadForm.invalid"
+                class="btn btn-primary btn-block rounded"
+                type="submit">
+            Upload
+        </button>
+        <button *ngIf="uploading"
+                class="btn btn-primary btn-block rounded"
+                disabled
+                type="button">
+            <span aria-hidden="true" class="spinner-border spinner-border-sm" role="status"></span>
+            Uploading...
+        </button>
+    </div>
+
+</form>

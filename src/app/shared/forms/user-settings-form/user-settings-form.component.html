@@ -1,0 +1,109 @@
+<form [formGroup]="userSettingsForm"
+      class="mx-auto">
+
+    <!-- Traceability Default -->
+    <div class="form-group row">
+
+        <!-- Label -->
+        <label class="col-12 col-sm-4 col-form-label d-flex align-items-center"
+               for="mfa">
+            MFA
+        </label>
+
+        <!-- Input Group -->
+        <div class="input-group col-12 col-sm-8 my-auto">
+
+            <div class="custom-control custom-switch">
+                <input (click)="enableOrDisableMfa()"
+                       [checked]="mfaEnabled"
+                       [formControlName]="'mfa'"
+                       class="custom-control-input"
+                       id="mfa"
+                       type="checkbox">
+                <label class="custom-control-label"
+                       for="mfa">
+                    {{enable}}
+                </label>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Traceability Default -->
+    <div *ngIf="traceabilitys.length > 0"
+         class="form-group row">
+
+        <!-- Label -->
+        <label class="col-12 col-sm-4 col-form-label d-flex align-items-center"
+               for="defaultTraceability">
+            Traceability Default
+        </label>
+
+        <!-- Input Group -->
+        <div class="input-group col-12 col-sm-8">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <!-- SVG -->
+                <span class="input-group-text justify-content-center rounded-left">
+                    <app-traceability-svg svgSize="sm"></app-traceability-svg>
+                </span>
+            </div>
+
+            <!-- Select -->
+            <select (change)="updateUserSettingsTraceabilityId(getTraceabilityIdByCompanyDivisionName($event.target.value))"
+                    class="custom-select align-self-center"
+                    id="defaultTraceability">
+
+                <option *ngFor="let traceability of traceabilitys"
+                        [ngValue]="traceability"
+                        [selected]="traceability.id === defaultTraceabilityId">
+                    {{ getCompanyDivisionNameByTraceabilityId(traceability.id) }}
+                </option>
+
+            </select>
+
+        </div>
+    </div>
+
+    <!-- File Share Default -->
+    <div *ngIf="fileShares.length > 0"
+         class="form-group row">
+
+        <!-- Label -->
+        <label class="col-12 col-sm-4 col-form-label d-flex align-items-center"
+               for="defaultFileShare">
+            File Share Default
+        </label>
+
+        <!-- Input Group -->
+        <div class="input-group col-12 col-sm-8">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <!-- SVG -->
+                <span class="input-group-text justify-content-center rounded-left">
+                    <app-file-share-svg svgSize="sm"></app-file-share-svg>
+                </span>
+            </div>
+
+            <!-- Select -->
+            <select (change)="updateUserSettingsFileShareId(getFileShareIdByCompanyDivisionName($event.target.value))"
+                    class="custom-select align-self-center"
+                    id="defaultFileShare">
+
+                <option *ngFor="let fileShare of fileShares"
+                        [ngValue]="fileShare"
+                        [selected]="fileShare.id === defaultFileShareId">
+                    {{ getCompanyDivisionNameByFileShareId(fileShare.id) }}
+                </option>
+
+            </select>
+
+        </div>
+    </div>
+
+    <!-- Dev Tools -->
+    <app-user-dev-tools></app-user-dev-tools>
+
+</form>

@@ -1,0 +1,306 @@
+<!-- Form -->
+<form [formGroup]="companyDivisionAddressForm"
+      class="mx-auto">
+
+    <!-- Address -->
+    <div class="form-group row">
+
+        <!-- Label -->
+        <label class="col-sm-2 col-form-label d-flex align-items-center"
+               for="address">
+            Address
+        </label>
+
+        <!-- Input Group -->
+        <div class="input-group col">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <!-- SVG -->
+                <span [class.rounded-left]="!companyDivisionAddressForm.disabled"
+                      [class.rounded]="companyDivisionAddressForm.disabled"
+                      class="input-group-text justify-content-center">
+                    <app-address-svg [svgSize]="'sm'"></app-address-svg>
+                </span>
+            </div>
+
+            <!-- Input -->
+            <input [class]="fieldClass"
+                   [ngClass]="{'is-invalid': formControls['address'].invalid && (formControls['address'].touched || formControls['address'].dirty)}"
+                   class="rounded-right"
+                   [formControlName]="'address'"
+                   id="address"
+                   name="address"
+                   placeholder="Street Address"
+                   required
+                   autocomplete="address-line1"
+                   type="text">
+
+            <!-- Invalid Feedback -->
+            <div *ngIf="formControls['address'].invalid && (formControls['address'].touched || formControls['address'].dirty)"
+                 class="invalid-feedback">
+                <div *ngIf="formControls['address'].errors?.required">
+                    An address is required.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Address Details -->
+    <div class="form-group row">
+
+        <!-- Label -->
+        <label class="col-sm-2 col-form-label d-flex align-items-center"
+               for="additionalAddressDetails">
+            Address Details
+        </label>
+
+        <!-- Input Group -->
+        <div class="input-group col">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <!-- SVG -->
+                <span [class.rounded-left]="!companyDivisionAddressForm.disabled"
+                      [class.rounded]="companyDivisionAddressForm.disabled"
+                      class="input-group-text justify-content-center">
+                    <app-address-details-svg></app-address-details-svg>
+                </span>
+            </div>
+
+            <!-- Input -->
+            <input [class]="fieldClass"
+                   class="rounded-right"
+                   [formControlName]="'additionalAddressDetails'"
+                   id="additionalAddressDetails"
+                   name="additionalAddressDetails"
+                   placeholder="Apartment / Suite / Building / Floor / etc."
+                   autocomplete="address-line2"
+                   type="text">
+
+        </div>
+    </div>
+
+    <!-- City -->
+    <div class="form-group row">
+
+        <!-- Label -->
+        <label class="col-sm-2 col-form-label d-flex align-items-center"
+               for="city">
+            City
+        </label>
+
+        <!-- Input Group -->
+        <div class="input-group col">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <!-- SVG -->
+                <span [class.rounded-left]="!companyDivisionAddressForm.disabled"
+                      [class.rounded]="companyDivisionAddressForm.disabled"
+                      class="input-group-text justify-content-center">
+                    <app-city-svg></app-city-svg>
+                </span>
+            </div>
+
+            <!-- Input -->
+            <input [class]="fieldClass"
+                   [ngClass]="{'is-invalid': formControls['city'].invalid && (formControls['city'].touched || formControls['city'].dirty)}"
+                   class="rounded-right"
+                   [formControlName]="'city'"
+                   id="city"
+                   name="city"
+                   placeholder="City"
+                   required
+                   autocomplete="address-level2"
+                   type="text">
+
+            <!-- Invalid Feedback -->
+            <div *ngIf="formControls['city'].invalid && (formControls['city'].touched || formControls['city'].dirty)"
+                 class="invalid-feedback">
+                <div *ngIf="formControls['city'].errors?.required">
+                    A city is required.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Zip Postal Code -->
+    <div class="form-group row">
+
+        <!-- Label -->
+        <label class="col-sm-2 col-form-label d-flex align-items-center"
+               for="zipPostalCode">
+            Zip / Postal Code
+        </label>
+
+        <!-- Input Group -->
+        <div class="input-group col">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <!-- SVG -->
+                <span [class.rounded-left]="!companyDivisionAddressForm.disabled"
+                      [class.rounded]="companyDivisionAddressForm.disabled"
+                      class="input-group-text justify-content-center">
+                    <app-zip-postal-code-svg></app-zip-postal-code-svg>
+                </span>
+            </div>
+
+            <!-- Input -->
+            <input [class]="fieldClass"
+                   [ngClass]="{ 'is-invalid': formControls['zipPostalCode'].invalid && (formControls['zipPostalCode'].touched || formControls['zipPostalCode'].dirty) }"
+                   class="rounded-right"
+                   [formControlName]="'zipPostalCode'"
+                   id="zipPostalCode"
+                   name="zipPostalCode"
+                   placeholder="Zip / Postal Code"
+                   required
+                   autocomplete="postal-code"
+                   type="text">
+
+            <!-- Invalid Feedback -->
+            <div *ngIf="formControls['zipPostalCode'].invalid && (formControls['zipPostalCode'].touched || formControls['zipPostalCode'].dirty)"
+                 class="invalid-feedback">
+                <div *ngIf="formControls['zipPostalCode'].errors?.required">
+                    A zip or postal code is required.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- State Province County -->
+    <div class="form-group row">
+
+        <!-- Label -->
+        <label class="col-sm-2 col-form-label d-flex align-items-center"
+               for="stateProvinceCounty">
+            State / Province / County
+        </label>
+
+        <!-- Input Group -->
+        <div class="input-group col">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <!-- SVG -->
+                <span [class.rounded-left]="!companyDivisionAddressForm.disabled"
+                      [class.rounded]="companyDivisionAddressForm.disabled"
+                      class="input-group-text justify-content-center">
+                    <app-state-province-county-svg></app-state-province-county-svg>
+                </span>
+            </div>
+
+            <!-- Input -->
+            <input [class]="fieldClass"
+                   [ngClass]="{ 'is-invalid': formControls['stateProvinceCounty'].invalid && (formControls['stateProvinceCounty'].touched || formControls['stateProvinceCounty'].dirty) }"
+                   class="rounded-right"
+                   [formControlName]="'stateProvinceCounty'"
+                   id="stateProvinceCounty"
+                   name="stateProvinceCounty"
+                   placeholder="State / Province / County"
+                   required
+                   autocomplete="address-level1"
+                   type="text">
+
+            <!-- Invalid Feedback -->
+            <div *ngIf="formControls['stateProvinceCounty'].invalid && (formControls['stateProvinceCounty'].touched || formControls['stateProvinceCounty'].dirty)"
+                 class="invalid-feedback">
+                <div *ngIf="formControls['stateProvinceCounty'].errors?.required">
+                    A state, province, or county is required.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Country -->
+    <div class="form-group row">
+
+        <!-- Label -->
+        <label class="col-sm-2 col-form-label d-flex align-items-center"
+               for="country">
+            Country
+        </label>
+
+        <!-- Input group -->
+        <div class="input-group col">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <!-- SVG -->
+                <span [class.rounded-left]="!companyDivisionAddressForm.disabled"
+                      [class.rounded]="companyDivisionAddressForm.disabled"
+                      class="input-group-text justify-content-center">
+                    <app-country-svg></app-country-svg>
+                </span>
+            </div>
+
+            <!-- Input -->
+            <input [class]="fieldClass"
+                   [ngClass]="{ 'is-invalid': formControls['country'].invalid && (formControls['country'].touched || formControls['country'].dirty) }"
+                   class="rounded-right"
+                   [formControlName]="'country'"
+                   id="country"
+                   name="country"
+                   placeholder="Country"
+                   required
+                   autocomplete="country"
+                   type="text">
+
+            <!-- Invalid Feedback -->
+            <div *ngIf="formControls['country'].invalid && (formControls['country'].touched || formControls['country'].dirty)"
+                 class="invalid-feedback">
+                <div *ngIf="formControls['country'].errors?.required">
+                    A country is required.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="form-group">
+        <!-- Register -->
+        <button (click)="registerCompanyDivisionAddress(companyDivisionAddressForm.value)"
+                *ngIf="!companyDivisionAddress"
+                [disabled]="companyDivisionAddressForm.invalid"
+                class="btn btn-primary btn-block rounded"
+                type="submit">
+            Register
+        </button>
+        <!-- Edit -->
+        <button (click)="enableForm()"
+                *ngIf="companyDivisionAddress && companyDivisionAddressForm.disabled"
+                class="btn btn-primary btn-block rounded"
+                type="button">
+            Edit
+        </button>
+        <!-- Update -->
+        <button (click)="updateCompanyDivisionAddress(companyDivisionAddressForm.value)"
+                *ngIf="companyDivisionAddress && !companyDivisionAddressForm.disabled"
+                [disabled]="companyDivisionAddressForm.invalid"
+                class="btn btn-primary btn-block rounded"
+                type="submit">
+            Update
+        </button>
+        <!-- Delete -->
+        <button (click)="deleteCompanyDivisionAddress()"
+                *ngIf="companyDivisionAddress && !companyDivisionAddressForm.disabled"
+                class="btn btn-primary btn-block rounded"
+                type="submit">
+            Delete
+        </button>
+    </div>
+
+    <!-- Note -->
+    <p *ngIf="!companyDivisionAddress"
+       class="my-3">
+        By clicking the "Register" button, you are creating an address within this specific
+        division. This address should be associated with the division of your company.
+    </p>
+
+    <!-- Dev Tools -->
+    <app-company-dev-tools [companyDivisionAddress]="companyDivisionAddress"
+                           [companyDivisionId]="companyDivisionId">
+    </app-company-dev-tools>
+
+</form>

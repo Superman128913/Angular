@@ -1,0 +1,109 @@
+<!-- Quality -->
+<div class="container-fluid p-0">
+    <div class="row no-gutters justify-content-center">
+        <div class="col">
+
+            <!-- Header -->
+            <section id="header">
+                <div class="row no-gutters justify-content-center">
+                    <div class="col-10">
+                        <h1 class="m-0">
+                            We <a class="red_ribbon">never sacrifice quality</a> and neither should you.
+                        </h1>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Middle Top -->
+            <section id="middle-top">
+                <div class="row no-gutters justify-content-center">
+                    <div class="col-8 text-center">
+                        <p class="m-0">
+                            We are committed to never sacrificing quality, health, nor safety. We do this by believing in the spirit of our quality policy,
+                            our health and safety policy, and each and every one of our released quality and compliance statements. While these may be viewed
+                            as general business requirements for an aerospace and defense company, we view them are part of our DNA which we ingrain in our
+                            culture and our values.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Policies -->
+            <section id="policies">
+                <div class="row no-gutters justify-content-center">
+                    <div class="col-12 col-md-6 p-5 text-center woodsmoke align-items-center justify-content-center">
+                        <h3 class="mb-3">
+                            Quality policy
+                        </h3>
+                        <p>
+                            {{qualityPolicy}}
+                        </p>
+                    </div>
+
+                    <div class="col-12 col-md-6 p-5 text-center woodsmoke_lighter align-items-center justify-content-center">
+                        <h3 class="mb-3">
+                            Health & safety policy
+                        </h3>
+                        <p>
+                            {{healthASndSafetyPolicy}}
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Middle Bottom -->
+            <section id="middle-bottom">
+                <div class="row no-gutters justify-content-center">
+                    <div class="col-10">
+
+                        <!-- Heading -->
+                        <h1 class="mb-5">
+                            Quality and compliance statements
+                        </h1>
+
+                        <!-- Cards -->
+                        <div class="card-deck">
+
+                            <!-- Card -->
+                            <div *ngFor="let document of documents; let i = index"
+                                 class="col-auto mb-4">
+                                <div class="card mx-auto">
+                                    <!-- PDF Viewer -->
+                                    <div class="pdf-container">
+                                        <app-pdf-viewer [fitToPage]="true"
+                                                        [originalSize]="true"
+                                                        [src]="document.filePath">
+                                        </app-pdf-viewer>
+                                    </div>
+
+                                    <!-- Overlay -->
+                                    <div class="overlay d-flex position-absolute flex-column align-items-center justify-content-center">
+                                        <app-download-svg></app-download-svg>
+                                    </div>
+
+                                    <!-- Stretched Link -->
+                                    <a download [href]=document.filePath
+                                       class="stretched-link position-absolute"
+                                       [title]=document.title>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <section id="footer">
+                <div class="row no-gutters justify-content-center">
+                    <div class="col-10 text-center">
+                        <h2 class="m-0">
+                            If you have a quality question or concern, contact us at <a href="mailto:{{qualityEmail}}">{{qualityEmail}}</a>.
+                        </h2>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+@import "../../../../styles/custom-variables";
+
+.progress-cont {
+  height: 7px;
+  width: 100%;
+  background-color: $woodsmoke_lighter;
+  position: relative;
+
+  .progress {
+    width: 0;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: $red_ribbon;
+    transition: 0.5s all;
+  }
+}

@@ -1,0 +1,77 @@
+@import "../../../../../styles/custom-variables";
+
+// smaller than small breakpoint
+@media (max-width: 576px) {
+  #main-logo-lg {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s,
+    opacity 0.5s ease;
+  }
+
+  #main-logo-sm {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s,
+    opacity 0.5s ease;
+  }
+}
+
+// larger than small breakpoint
+@media (min-width: 576px) {
+  #main-logo-lg {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s,
+    opacity 0.5s ease;
+  }
+
+  #main-logo-sm {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s,
+    opacity 0.5s ease;
+  }
+}
+
+#main-logo-lg {
+  max-height: 100px;
+}
+
+#main-logo-sm {
+  max-height: 100px;
+}
+
+li {
+  color: $alabaster;
+}
+
+h5 {
+  color: $alabaster;
+}
+
+p {
+  color: $alabaster;
+}
+
+a {
+  color: $alabaster;
+
+  &:hover {
+    color: $red_ribbon;
+    transition: 0.5s ease;
+  }
+
+  span {
+    font-size: 1em;
+    line-height: 1.25em;
+  }
+}
+
+.container-bg {
+  background-color: $woodsmoke;
+}

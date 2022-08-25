@@ -1,0 +1,21 @@
+@import "../../../styles/custom-variables";
+
+#header {
+  background-color: $woodsmoke_light;
+  color: $alabaster;
+  padding-top: 10em;
+  padding-bottom: 10em;
+}
+
+#middle {
+  color: $woodsmoke;
+  padding-top: 5em;
+  padding-bottom: 5em;
+}
+
+#footer {
+  background-color: $woodsmoke_light;
+  color: $alabaster;
+  padding-top: 5em;
+  padding-bottom: 5em;
+}

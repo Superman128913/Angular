@@ -1,0 +1,130 @@
+@import "../../../styles/custom-variables";
+
+// smaller than small breakpoint
+@media (max-width: 576px) {
+  .card {
+    height: 330px;
+    width: 255px;
+
+    .pdf-container {
+      height: 330px;
+      width: 255px;
+    }
+
+    .overlay {
+      height: 330px;
+      width: 255px;
+    }
+
+    a.stretched-link {
+      height: 330px;
+      width: 255px;
+    }
+
+    .stretched-link::after {
+      height: 330px;
+      width: 255px;
+    }
+  }
+}
+
+// larger than small breakpoint
+@media (min-width: 576px) {
+  .card {
+    height: 550px;
+    width: 425px;
+
+    .pdf-container {
+      height: 550px;
+      width: 425px;
+    }
+
+    .overlay {
+      height: 550px;
+      width: 425px;
+    }
+
+    a.stretched-link {
+      height: 550px;
+      width: 425px;
+    }
+
+    .stretched-link::after {
+      height: 550px;
+      width: 425px;
+    }
+  }
+}
+
+#header {
+  background-color: $woodsmoke_light;
+  color: $alabaster;
+  padding-top: 10em;
+  padding-bottom: 10em;
+}
+
+#middle-top {
+  color: $woodsmoke;
+  padding-top: 5em;
+  padding-bottom: 5em;
+}
+
+#footer {
+  background-color: $woodsmoke_light;
+  color: $alabaster;
+  padding-top: 5em;
+  padding-bottom: 5em;
+}
+
+#middle-bottom {
+  color: $woodsmoke;
+  padding-top: 5em;
+  padding-bottom: 5em;
+}
+
+.red_ribbon {
+  color: $red_ribbon;
+}
+
+.woodsmoke {
+  background-color: $woodsmoke;
+  color: $alabaster;
+}
+
+.woodsmoke_lighter {
+  background-color: $woodsmoke_lighter;
+  color: $alabaster;
+}
+
+.alabaster {
+  background-color: $alabaster;
+  color: $woodsmoke;
+}
+
+:host ::ng-deep .ng2-pdf-viewer-container {
+  height: auto !important;
+}
+
+:host ::ng-deep .page {
+  margin: 0 !important;
+}
+
+.overlay {
+  opacity: 0;
+}
+
+.card {
+
+  &:hover {
+    .overlay {
+      opacity: 1;
+      transition: 0.5s ease;
+    }
+  }
+
+  a.stretched-link {
+    &:hover {
+      background-color: rgba(36, 33, 33, 0.3);
+    }
+  }
+}

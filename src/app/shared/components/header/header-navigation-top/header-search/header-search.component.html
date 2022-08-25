@@ -1,0 +1,42 @@
+<!-- Search Bar -->
+<!-- TODO - extend input focus around button -->
+<form class="flex-fill" id="search">
+    <div class="input-group">
+        <input (input)="searchTerm.next($event)" aria-label="search" class="form-control border-0 rounded-left"
+               placeholder="Search"
+               type="search">
+        <small *ngIf="loading">Searching...</small>
+        <div class="input-group-append">
+            <!-- TODO - hook up button to search results page -->
+            <button class="btn-primary border-0 rounded-right" type="submit">
+                <svg class="bi bi-search" fill="currentColor" height="16" viewBox="0 0 16 16" width="16"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</form>
+
+<!-- Search Menu -->
+<div *ngIf="searchResults" class="dropdown-menu d-flex flex-column w-100">
+    <ul class="list-unstyled">
+        <li *ngFor="let result of searchResults">
+            <!-- TODO - update routerLink to be product/specification/part_number -->
+            <a *ngIf="result.part_number" [routerLink]="result.part_number" class="dropdown-item">
+        <span class="h6 m-0">
+          {{ result.part_number }}
+        </span>
+            </a>
+        </li>
+        <!-- TODO - add *ngFor pulling all categories of parts that were searched -->
+        <div class="dropdown-divider"></div>
+        <li>
+            <a [routerLink]="['/']" class="dropdown-item">
+        <span class="h6 m-0">
+          Category of Part
+        </span>
+            </a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,51 @@
+<app-breadcrumb></app-breadcrumb>
+
+<!-- Tab product start-->
+<div class="title1 section-t-space">
+    <h4>exclusive products</h4>
+    <h2 class="title-inner1">special products</h2>
+</div>
+<section class="section-b-space p-t-0">
+    <div class="container">
+        <div class="row">
+            <div class="col theme-tab">
+                <ul [type]="'pills'" class="tabs tab-title" ngbNav>
+                    <li ngbNavItem>
+                        <ng-template ngbTabTitle>New Products</ng-template>
+                        <ng-template ngbTabContent>
+                            <div class="no-slider row">
+                                <ng-container *ngFor="let product of products | slice:0:8">
+                                    <div class="product-box">
+                                        <app-product-box-one>
+                                            <!--                                                [cartModal]="true"-->
+                                            <!--                                                [currency]="productService?.Currency"-->
+                                            <!--                                                [product]="product"-->
+                                            <!--                                                [thumbnail]="true">-->
+                                        </app-product-box-one>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </ng-template>
+                    </li>
+                    <li ngbNavItem>
+                        <ng-template ngbTabTitle>Best Sellers</ng-template>
+                        <ng-template ngbTabContent>
+                            <div class="no-slider row">
+                                <ng-container *ngFor="let product of products | slice:8:16">
+                                    <div class="product-box">
+                                        <app-product-box-one>
+                                            <!--                                                [cartModal]="true"-->
+                                            <!--                                                [currency]="productService?.Currency"-->
+                                            <!--                                                [product]="product"-->
+                                            <!--                                                [thumbnail]="true">-->
+                                        </app-product-box-one>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </ng-template>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

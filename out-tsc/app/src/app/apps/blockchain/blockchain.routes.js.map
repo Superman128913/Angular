@@ -1,0 +1,1 @@
+{"version":3,"file":"blockchain.routes.js","sourceRoot":"","sources":["../../../../../../src/app/apps/blockchain/blockchain.routes.ts"],"names":[],"mappings":"AAEA,cAAc;AACd,OAAO,EAAC,mBAAmB,EAAC,MAAM,wBAAwB,CAAC;AAE3D,MAAM,CAAC,MAAM,iBAAiB,GAAW;IACrC;QACI,IAAI,EAAE,EAAE;QACR,SAAS,EAAE,mBAAmB;KACjC;IACD;QACI,kBAAkB;QAClB,IAAI,EAAE,IAAI;QACV,UAAU,EAAE,EAAE;KACjB;CACJ,CAAC"}

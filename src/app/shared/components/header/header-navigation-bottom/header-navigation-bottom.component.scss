@@ -1,0 +1,43 @@
+@import "../../../../../styles/custom-variables";
+
+// smaller than small breakpoint
+@media (max-width: 576px) {
+  a span {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s,
+    opacity 0.5s ease;
+  }
+}
+
+// larger than small breakpoint
+@media (min-width: 576px) {
+  a span {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s,
+    opacity 0.5s ease;
+  }
+}
+
+span {
+  font-size: 0.8em;
+}
+
+.navbar {
+  background-color: $woodsmoke-light;
+}
+
+.navbar-nav {
+  height: 40px;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: $alabaster;
+
+  &:hover {
+    color: $red_ribbon;
+  }
+}

@@ -1,0 +1,66 @@
+<!-- Dev Mode -->
+<div *ngIf="isDevMode">
+    <!-- Add Break -->
+    <hr/>
+
+    <!-- Header -->
+    <h4 class="d-block text-center text-warning">
+        Dev Tools - User
+    </h4>
+
+    <!-- Sign In - Seed -->
+    <button (click)="testSignInSeedUser()"
+            class="btn btn-outline-warning btn-block mx-1"
+            type="button">
+        Sign In - User
+    </button>
+    <!-- Sign In - Admin -->
+    <button (click)="testSignInAdmin()"
+            class="btn btn-outline-warning btn-block mx-1"
+            type="button">
+        Sign In - Admin
+    </button>
+    <!-- Register User - Seed -->
+    <button (click)="testRegisterSeedUser()"
+            class="btn btn-outline-warning btn-block mx-1"
+            type="button">
+        Register User - Seed
+    </button>
+    <!-- Register User - Aeroplicity -->
+    <button (click)="testRegisterAeroplicityUser()"
+            class="btn btn-outline-warning btn-block mx-1"
+            type="button">
+        Register User - Aeroplicity
+    </button>
+    <!-- Register User - Random -->
+    <button (click)="testRegisterRandomUser()"
+            class="btn btn-outline-warning btn-block mx-1"
+            type="button">
+        Register User - Random
+    </button>
+    <!-- Change Password -->
+    <button (click)="testChangePassword()"
+            class="btn btn-outline-warning btn-block mx-1"
+            type="button">
+        Change Password
+    </button>
+    <!-- Delete User -->
+    <button (click)="testDeleteUser()"
+            class="btn btn-outline-warning btn-block mx-1"
+            type="button">
+        Delete User
+    </button>
+    <!-- Resend Reset Password -->
+    <button (click)="testResendResetPassword()"
+            class="btn btn-outline-warning btn-block mx-1"
+            type="button">
+        Resend Reset Password
+    </button>
+    <!-- Resend Confirmation Email -->
+    <button (click)="testResendConfirmationEmail()"
+            class="btn btn-outline-warning btn-block mx-1"
+            type="button">
+        Resend Confirmation Email
+    </button>
+
+</div>

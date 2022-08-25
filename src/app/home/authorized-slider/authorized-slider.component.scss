@@ -1,0 +1,13 @@
+@import "../../../styles/custom-variables";
+
+::ng-deep .ng-image-slider .ng-image-slider-container .main .main-inner .img-div {
+  border-radius: 0 !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+  filter: grayscale(100%);
+}
+
+.container-bg {
+  background-color: $woodsmoke_lighter;
+}

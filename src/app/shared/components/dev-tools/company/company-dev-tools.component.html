@@ -1,0 +1,74 @@
+<!-- Dev Mode -->
+<div *ngIf="isDevMode">
+    <!-- Add Break -->
+    <hr/>
+
+    <!-- Header -->
+    <h4 class="d-block text-center text-warning">
+        Dev Tools - Company
+    </h4>
+
+    <!-- Register Company - Seed -->
+    <button (click)="testRegisterSeedCompany()"
+            class="btn btn-outline-warning btn-block mx-1"
+            type="button">
+        Register Company - Seed
+    </button>
+    <!-- Register Company - Random -->
+    <button (click)="testRegisterCompany()"
+            class="btn btn-outline-warning btn-block mx-1"
+            type="button">
+        Register Company - Random
+    </button>
+    <!-- Delete Company -->
+    <button (click)="testDeleteCompany()"
+            class="btn btn-outline-warning btn-block mx-1"
+            type="button">
+        Delete Company
+    </button>
+    <!-- Register Company Division -->
+    <button (click)="testRegisterCompanyDivision()"
+            class="btn btn-outline-warning btn-block mx-1"
+            type="button">
+        Register Company Division
+    </button>
+    <!-- Delete Company Division -->
+    <button (click)="testDeleteCompanyDivision()"
+            class="btn btn-outline-warning btn-block mx-1"
+            type="button">
+        Delete Company Division
+    </button>
+    <!-- Register Company Division Address -->
+    <button (click)="testRegisterCompanyDivisionAddress()"
+            *ngIf="!companyDivisionAddress"
+            class="btn btn-outline-warning btn-block mx-1"
+            type="button">
+        Register Company Division Address
+    </button>
+    <!-- Delete Company Division Address -->
+    <button (click)="testDeleteCompanyDivisionAddress()"
+            *ngIf="companyDivisionAddress"
+            class="btn btn-outline-warning btn-block mx-1"
+            type="button">
+        Delete Company Division Address
+    </button>
+    <!-- Register Domain - Seed -->
+    <button (click)="testRegisterSeedCompanyDomain()"
+            class="btn btn-outline-warning btn-block m-1"
+            type="button">
+        Register Domain - Seed
+    </button>
+    <!-- Register Domain - Random -->
+    <button (click)="testRegisterCompanyDomain()"
+            class="btn btn-outline-warning btn-block m-1"
+            type="button">
+        Register Domain - Random
+    </button>
+    <!-- Invite Company User -->
+    <button (click)="testCreateCompanyUserInvite()"
+            class="btn btn-outline-warning btn-block mx-1"
+            type="button">
+        Invite Company User - Random
+    </button>
+
+</div>

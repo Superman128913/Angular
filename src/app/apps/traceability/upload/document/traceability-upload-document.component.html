@@ -1,0 +1,337 @@
+<!-- Document -->
+<div class="row no-gutters h-100 p-5">
+
+    <!-- w/o Documents -->
+    <div *ngIf="documents.length === 0"
+         class="col">
+
+        <!-- Drop Zone -->
+        <div (fileDropped)="fileBrowseOrDroppedHandler($event)"
+             appDragAndDrop
+             class="d-flex flex-row align-items-center h-100 w-100 text-center overflow-auto rounded drop-zone">
+
+            <input #fileDrop
+                   (change)="fileBrowseOrDroppedHandler($event.target['files'])"
+                   [title]="this.dragAndDropTitle"
+                   accept="application/pdf"
+                   class="w-100 h-100"
+                   id="fileDrop"
+                   [multiple]="true"
+                   type="file">
+
+            <div class="d-flex flex-column w-100 align-items-center">
+                <!-- Upload Icon -->
+                <svg class="bi bi-upload" fill="currentColor" height="100" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                    <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
+                </svg>
+
+                <h2>
+                    {{this.dragAndDropTitle}} or
+                </h2>
+
+                <!-- Dropdown -->
+                <div class="row">
+                    <div class="col">
+
+                        <div class="d-inline-block"
+                             ngbDropdown>
+
+                            <!-- Toggle Dropdown -->
+                            <button class="btn btn-outline-primary btn-lg rounded"
+                                    id="upload"
+                                    ngbDropdownToggle
+                                    type="button">
+
+                                <div class="row">
+                                    <div class="col text-center p-0">
+                                        Upload
+                                    </div>
+                                    <div class="col-2 pl-0 mr-1">
+                                        <i class="bi bi-caret-down d-inline"></i>
+                                    </div>
+                                </div>
+
+                            </button>
+
+                            <div aria-labelledby="upload"
+                                 class="p-1"
+                                 ngbDropdownMenu>
+
+                                <!-- Desktop -->
+                                <div class="row m-0 p-1"
+                                     ngbDropdownItem>
+                                    <i class="bi bi-laptop col-1 d-inline text-center p-1"></i>
+                                    <label class="col text-left m-0 p-1"
+                                           for="fileDrop">
+                                        Desktop
+                                    </label>
+                                </div>
+
+                                <!-- Divider -->
+                                <div class="dropdown-divider m-1"></div>
+
+                                <!-- TODO - Additional Upload Options -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- w/ Documents -->
+    <div *ngIf="documents.length > 0"
+         class="col">
+
+        <!-- Cards -->
+        <div class="row row-cols-md-2 row-cols-xl-3">
+
+            <!-- Document Card -->
+            <div *ngFor="let document of documents; let i = index"
+                 class="col mb-3">
+
+                <!-- Modal TODO - need to move this to sub component -->
+<!--                <ng-template #content let-modal>-->
+<!--                    <div class="modal-header">-->
+<!--                        &lt;!&ndash; Close &ndash;&gt;-->
+<!--                        <div class="ml-auto">-->
+<!--                            <h5 class="modal-title">-->
+<!--                                {{displayWithoutFileExtension(document.data?.attributes.name)}}-->
+<!--                            </h5>-->
+<!--                        </div>-->
+<!--                        <div class="ml-auto"-->
+<!--                                title="Dismiss">-->
+<!--                            <svg (click)="modal.dismiss()"-->
+<!--                                 class="bi bi-x-circle"-->
+<!--                                 fill="currentColor"-->
+<!--                                 height="25"-->
+<!--                                 viewBox="0 0 16 16"-->
+<!--                                 xmlns="http://www.w3.org/2000/svg">-->
+<!--                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>-->
+<!--                            </svg>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="modal-body">-->
+<!--                        &lt;!&ndash; PDF Viewer &ndash;&gt;-->
+<!--                        <div *ngIf="document.data?.attributes.filePath"-->
+<!--                             class="h-100">-->
+<!--                            <app-pdf-viewer [originalSize]=false-->
+<!--                                            [src]="document.data?.attributes.filePath"></app-pdf-viewer>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash;                    <div class="modal-footer">&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--                </ng-template>-->
+
+                <!-- Card -->
+                <div class="card h-100 card-file">
+
+                    <!-- Loading Animation -->
+                    <div *ngIf="!document.data"
+                         class="d-flex h-100 text-center justify-content-center">
+                        <div class="spinner-border spinner-border text-primary align-self-center m-5"
+                             role="status">
+                        <span class="sr-only">
+                            Loading...
+                        </span>
+                        </div>
+                    </div>
+
+                    <!-- Document Preview -->
+                    <div (click)="openPdfViewerModal(document)"
+                         *ngIf="document.data?.attributes.previewPath">
+                        <img [src]="document.data?.attributes.previewPath"
+                             alt="Document Preview"
+                             title="Open"
+                             class="card-img-top">
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="row card-footer bg-transparent m-0 mt-auto p-2">
+                        <div class="col m-0 p-0">
+
+                            <!-- Document Upload Form -->
+                            <app-traceability-document-upload-form (documentEvent)="updateDocuments($event)"
+                                                                   [documentId]="document.data?.attributes.id">
+                            </app-traceability-document-upload-form>
+
+                            <!-- Bottom -->
+                            <div class="align-self-center p-1">
+                                <!-- Pending Notice -->
+                                <div class="d-inline-block float-left">
+                                    <small>
+                                        *Document PENDING until upload
+                                    </small>
+                                </div>
+                                <!-- Dropdown Options -->
+                                <div class="d-inline-block float-right"
+                                     ngbDropdown>
+
+                                    <!-- Toggle Dropdown -->
+                                    <div id="options"
+                                         title="Options"
+                                         ngbDropdownToggle>
+                                        <svg class="bi bi-three-dots-vertical" fill="currentColor" height="25" viewBox="0 0 16 16"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                                        </svg>
+                                    </div>
+
+                                    <div aria-labelledby="options"
+                                         class="p-1"
+                                         ngbDropdownMenu>
+
+                                        <!-- Rename -->
+                                        <div class="row m-0 p-1"
+                                             ngbDropdownItem>
+                                            <label (click)="renameFile(i)"
+                                                   class="col text-left m-0 p-1">
+                                                Rename
+                                            </label>
+                                        </div>
+                                        <!-- Replace -->
+                                        <div class="row m-0 p-1"
+                                             ngbDropdownItem>
+                                            <label class="col text-left m-0 p-1"
+                                                   for="replaceFile">
+                                                Replace
+                                            </label>
+                                            <!-- NOTE - must be 'files' -->
+                                            <input (change)="replaceFile(i, document.data?.id, $event.target['files'])"
+                                                   [multiple]="false"
+                                                   accept=".pdf"
+                                                   id="replaceFile"
+                                                   type="file"
+                                                   class="invisible">
+                                        </div>
+                                        <!-- Download -->
+                                        <div class="row m-0 p-1"
+                                             ngbDropdownItem>
+                                            <label (click)="downloadFile(document)"
+                                                   class="col text-left m-0 p-1">
+                                                Download
+                                            </label>
+                                        </div>
+                                        <!-- Delete -->
+                                        <div class="row m-0 p-1"
+                                             ngbDropdownItem>
+                                            <label (click)="deleteFile(document.data?.attributes.id, i)"
+                                                   class="col text-left m-0 p-1">
+                                                Delete
+                                            </label>
+                                        </div>
+                                        <!-- View -->
+                                        <div class="row m-0 p-1"
+                                             ngbDropdownItem>
+                                            <label (click)="viewFile(i)"
+                                                   class="col text-left m-0 p-1">
+                                                View
+                                            </label>
+                                        </div>
+
+                                        <!-- Additional Upload Options -->
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Delete -->
+                    <div title="Delete">
+                        <svg (click)="deleteFile(document.data?.attributes.id, i)"
+                             class="bi bi-x-circle-fill"
+                             fill="currentColor"
+                             viewBox="0 0 16 16"
+                             width="20"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Drag and Drop Card -->
+            <div class="col mb-3">
+
+                <!-- Card -->
+                <div (fileDropped)="fileBrowseOrDroppedHandler($event)"
+                     appDragAndDrop
+                     class="card h-100 p-3 align-items-center justify-content-center text-center bg-transparent card-drop-zone">
+
+                    <input #fileDrop
+                           (change)="fileBrowseOrDroppedHandler($event.target['files'])"
+                           [title]="this.dragAndDropTitle"
+                           accept="application/pdf"
+                           class="w-100 h-100"
+                           id="fileDrop2"
+                           [multiple]="true"
+                           type="file">
+
+                    <div class="d-flex flex-column w-100 align-items-center">
+                        <!-- Upload Icon -->
+                        <svg class="bi bi-upload" fill="currentColor" height="50" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                            <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
+                        </svg>
+
+                        <h6>
+                            {{this.dragAndDropTitle}} or
+                        </h6>
+
+                        <!-- Dropdown -->
+                        <div class="row">
+                            <div class="col">
+
+                                <div class="d-inline-block"
+                                     ngbDropdown>
+
+                                    <!-- Toggle Dropdown -->
+                                    <button class="btn btn-outline-primary rounded"
+                                            id="upload2"
+                                            ngbDropdownToggle
+                                            type="button">
+
+                                        <div class="row row-col-2">
+                                            <div class="col text-center p-0">
+                                                Upload
+                                            </div>
+                                            <div class="col-2 pl-0 mr-1">
+                                                <i class="bi bi-caret-down d-inline"></i>
+                                            </div>
+                                        </div>
+
+                                    </button>
+
+                                    <div aria-labelledby="upload2"
+                                         class="p-1"
+                                         ngbDropdownMenu>
+
+                                        <!-- Desktop -->
+                                        <div class="row row-col-2 m-0 p-1"
+                                             ngbDropdownItem>
+                                            <i class="bi bi-laptop col-1 d-inline text-center p-1"></i>
+                                            <label class="col text-left m-0 p-1"
+                                                   for="fileDrop2">
+                                                Desktop
+                                            </label>
+                                        </div>
+
+                                        <!-- Divider -->
+                                        <div class="dropdown-divider m-1"></div>
+
+                                        <!-- Additional Upload Options -->
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

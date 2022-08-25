@@ -1,0 +1,44 @@
+<!-- Form -->
+<form (ngSubmit)="redirectToUserRegisterForm(userRegistrationRedirectForm.value)"
+      [formGroup]="userRegistrationRedirectForm"
+      class="row align-items-stretch my-5">
+
+    <!-- Email -->
+    <div class="col-12 col-md-7 form-group d-block">
+
+        <!-- Hide from non-screen reader visitors -->
+        <label for="email"
+               class="sr-only">
+            Email
+        </label>
+
+        <!-- Input -->
+        <input [ngClass]="{ 'is-invalid': formControls['email'].invalid && (formControls['email'].touched || formControls['email'].dirty) }"
+               class="form-control rounded w-100"
+               [formControlName]="'email'"
+               name="email"
+               [placeholder]=emailPlaceholder
+               type="email"
+               autocomplete="email"
+               id="email">
+
+        <!-- Invalid Feedback -->
+        <div *ngIf="formControls['email'].invalid && (formControls['email'].touched || formControls['email'].dirty)"
+             class="invalid-feedback">
+            <div *ngIf="formControls['email'].errors?.pattern">
+                Please provide a valid email address.
+            </div>
+        </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="col-12 col-md-5 form-group d-block">
+        <!-- Register -->
+        <button [disabled]="userRegistrationRedirectForm.invalid"
+                class="btn btn-primary btn-block rounded"
+                type="submit">
+            Register, it's free!
+        </button>
+    </div>
+
+</form>

@@ -1,0 +1,72 @@
+// https://getbootstrap.com/docs/4.6/getting-started/theming/
+
+// Custom Variables
+// NOTE: must be imported prior to ~bootstrap/scss/bootstrap
+@import "custom-variables";
+
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+// Toastr css
+@import "~ngx-toastr/toastr-bs4-alert";
+
+// Custom xng-breadcrumb scss
+@import "custom-xng-breadcrumb";
+
+// Custom angular-code-input scss
+@import "custom-angular-code-input";
+
+// Bootstrap Icons
+@import "~bootstrap-icons/font/bootstrap-icons";
+
+// Datatables css
+@import "~datatables.net-bs4/css/dataTables.bootstrap4.min";
+@import "~datatables.net-buttons-bs4/css/buttons.bootstrap4.min";
+@import "~datatables.net-scroller-bs4/css/scroller.bootstrap4.min";
+@import "~datatables.net-select-bs4/css/select.bootstrap4.min";
+
+// Animation
+@import "~animate.css/animate.min";
+
+// Owl Carousel
+@import "node_modules/ngx-owl-carousel-o/lib/styles/scss/owl.carousel";
+@import "node_modules/ngx-owl-carousel-o/lib/styles/scss/owl.theme.default";
+
+// Contextual Action
+@import "node_modules/datatables-contextual-actions/dist/dataTables.contextualActions.min";
+
+// set scrollbar behavior
+html {
+  background-color: $woodsmoke;
+
+  /* hide scrollbar for IE, Edge and Firefox but allow scrolling */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  overflow: auto;
+  scroll-behavior: smooth;
+
+  /* hide scrollbar for Chrome, Safari and Opera but allow scrolling */
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+}
+
+// set color above header and below footer
+body {
+  background-color: $alabaster;
+}
+
+a {
+  transition: 0.5s ease;
+
+  &:hover {
+    text-decoration: none;
+    transition: 0.5s ease;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+@import "custom-datatable";

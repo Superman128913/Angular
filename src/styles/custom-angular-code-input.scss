@@ -1,0 +1,19 @@
+// https://github.com/AlexMiniApps/angular-code-input#configuration
+
+code-input {
+  --item-spacing: 4px !important;
+  --item-height: 4.375em !important;
+  --item-border: 1px solid #ddd !important;
+  --item-border-bottom: 1px solid #ddd !important;
+  --item-border-has-value: 1px solid #ddd !important;
+  --item-border-bottom-has-value: 1px solid #ddd !important;
+  --item-border-focused: 1px solid #CE0A11 !important;
+  --item-border-bottom-focused: 1px solid #CE0A11 !important;
+  --item-shadow-focused: 0px 1px 5px #ddd !important;
+  --item-border-radius: 5px !important;
+  --item-background: transparent !important;
+
+  input:focus {
+    color: #CE0A11 !important;
+  }
+}

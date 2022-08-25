@@ -1,0 +1,21 @@
+@import "../../../../../styles/custom-variables";
+
+.container-bg {
+  background-color: $woodsmoke;
+}
+
+a {
+  color: $alabaster;
+  font-size: 0.75em;
+  line-height: 1em;
+}
+
+a:hover {
+  color: $red_ribbon;
+}
+
+span {
+  color: $alabaster;
+  font-size: 0.75em;
+  line-height: 1em;
+}

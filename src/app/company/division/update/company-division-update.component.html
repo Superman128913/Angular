@@ -1,0 +1,91 @@
+<!-- Breadcrumb -->
+<app-breadcrumb></app-breadcrumb>
+
+<!-- Company Division -->
+<div class="container-xl p-3">
+    <div class="row no-gutters justify-content-center">
+        <div class="col-10 col-sm-9 col-md-8 col-lg-7 col-xl-6">
+
+            <!-- Card -->
+            <div class="card">
+
+                <!-- Header -->
+                <div class="card-header">
+                    <h3 class="text-center m-0">
+                        {{companyDivision.name}}
+                    </h3>
+                </div>
+
+                <!-- Body -->
+                <div class="card-body">
+                    <!-- Form -->
+                    <app-company-division-form [companyDivisionId]="companyDivision.id">
+                    </app-company-division-form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Addresses -->
+        <div class="col-10 col-sm-9 col-md-8 col-lg-4 offset-lg-1">
+
+            <!-- Header -->
+            <div class="card-header bg-transparent border-0">
+                <h5>
+                    Addresses
+                </h5>
+            </div>
+
+            <div class="row row-cols-1">
+
+                <!-- Address -->
+                <div *ngFor="let companyDivisionAddress of this.companyDivisionAddresses; let i = index;"
+                     class="col mb-3">
+
+                    <!-- Card -->
+                    <div class="card card-custom flex-row h-100">
+
+                        <!-- SVG -->
+                        <div class="d-flex align-items-center m-3">
+                            <app-address-svg [svgSize]="'lg'"></app-address-svg>
+                        </div>
+
+                        <!-- Body -->
+                        <div class="d-flex flex-column flex-grow-1 align-self-center">
+                            <p class="card-body text-center m-0">
+                                {{companyDivisionAddress.address}} <br>
+                                {{companyDivisionAddress.additionalAddressDetails}} <br *ngIf="companyDivisionAddress.additionalAddressDetails">
+                                {{companyDivisionAddress.city}}, {{companyDivisionAddress.stateProvinceCounty}} {{companyDivisionAddress.zipPostalCode}}
+                                <br>
+                                {{companyDivisionAddress.country}}
+                                <a [routerLink]="['/company/divisions/', companyDivision.id, 'address', companyDivisionAddress.id]"
+                                   class="stretched-link"></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add Company Division Address -->
+                <div class="col mb-3">
+
+                    <!-- Card -->
+                    <div class="card card-custom flex-row h-100">
+
+                        <!-- SVG -->
+                        <div class="d-flex align-items-center m-3">
+                            <app-company-division-address-add-svg></app-company-division-address-add-svg>
+                        </div>
+
+                        <!-- Body -->
+                        <div class="d-flex flex-column flex-grow-1 align-self-center">
+                            <h5 class="card-body text-center m-0">
+                                Add Address
+                                <a [routerLink]="['/company/divisions/', companyDivision.id ,'address']"
+                                   class="stretched-link"></a>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

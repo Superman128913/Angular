@@ -1,0 +1,22 @@
+<!-- Header -->
+<div class="modal-header">
+    <!-- Title -->
+    <h6 class="modal-title">
+        Share selected documents
+    </h6>
+    <!-- Close -->
+    <button (click)="closeModal()"
+            aria-label="Close"
+            class="btn close"
+            title="Cancel"
+            type="button">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<!-- Body -->
+<div class="modal-body">
+    <app-traceability-share-form
+        [documents]="documents"
+        (sharedEvent)="closeModal()" ></app-traceability-share-form>
+</div>

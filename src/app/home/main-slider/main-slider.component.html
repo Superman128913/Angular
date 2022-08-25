@@ -1,0 +1,18 @@
+<div class="container-bg">
+    <div class="container-fluid m-0 p-0">
+        <div class="row justify-content-center">
+                <ngb-carousel *ngIf="slides">
+                    <ng-template *ngFor="let slide of slides" ngbSlide>
+<!--                        <div class="row">-->
+                            <img [src]="slide.imagePath"
+                                 [alt]="slide.imageAlt"
+                                 [title]="slide.imageTitle">
+                            <h1 class="w-50 h-25">
+                                {{slide.pitch}}
+                            </h1>
+<!--                        </div>-->
+                    </ng-template>
+                </ngb-carousel>
+        </div>
+    </div>
+</div>

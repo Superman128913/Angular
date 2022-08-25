@@ -1,0 +1,50 @@
+<!-- Form -->
+<form (ngSubmit)="renameTraceabilityDocument(traceabilityDocumentRenameForm.value)"
+      [formGroup]="traceabilityDocumentRenameForm"
+      class="mx-auto">
+
+    <!-- Name -->
+    <div class="form-group row">
+
+        <!-- Input Group -->
+        <div class="input-group col">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <!-- SVG -->
+                <span class="input-group-text rounded-left justify-content-center">
+                    <app-document-name-svg></app-document-name-svg>
+                </span>
+            </div>
+
+            <!-- Input -->
+            <input [formControlName]="'name'"
+                   [ngClass]="{ 'is-invalid': formControls['name'].invalid && (formControls['name'].touched || formControls['name'].dirty) }"
+                   autocomplete="on"
+                   class="form-control rounded-right"
+                   name="name"
+                   placeholder="Name"
+                   required
+                   type="text">
+
+            <!-- Invalid Feedback -->
+            <div *ngIf="formControls['name'].invalid && (formControls['name'].touched || formControls['name'].dirty)"
+                 class="invalid-feedback">
+                <div *ngIf="formControls['name'].errors?.required">
+                    A name is required.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="form-group m-0">
+        <!-- Rename -->
+        <button [disabled]="traceabilityDocumentRenameForm.invalid"
+                class="btn btn-primary btn-block rounded"
+                type="submit">
+            Rename
+        </button>
+    </div>
+
+</form>

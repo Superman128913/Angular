@@ -1,0 +1,32 @@
+@import "../../../../../../styles/custom-variables";
+
+svg {
+  display: inline-block;
+  font-size: inherit;
+  color: inherit;
+  vertical-align: -0.125em;
+  fill: currentColor;
+  width: 1em;
+  height: 1em;
+}
+
+.form-control {
+  height: 40px;
+}
+
+.btn-primary {
+  width: 45px;
+  height: 40px;
+  transition: 0.5s ease;
+}
+
+.btn-primary i {
+  color: white;
+  line-height: 40px;
+  font-size: 1em;
+}
+
+.dropdown-item:hover {
+  background-color: $alabaster;
+  transition: 0.5s ease;
+}

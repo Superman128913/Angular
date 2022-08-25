@@ -1,0 +1,104 @@
+<div class="row m-0 mb-3">
+    <div class="col-auto col-md d-inline-block"
+         container="body"
+         ngbDropdown
+         placement="right">
+
+        <!-- Division Active -->
+        <button class="btn btn-outline btn-block rounded border-0 p-1"
+                ngbDropdownToggle
+                type="button">
+
+            <!-- Profile >768px -->
+            <div class="w-100 align-middle"
+                 id="profile-lg">
+
+                <div class="d-inline-block float-left p-1">
+                    <p class="text-truncate m-0">
+                        <small>
+                            {{this.fullName}}
+                        </small>
+                    </p>
+                </div>
+
+                <!-- SVG -->
+                <div class="d-inline-block float-right p-1">
+                    <app-user-image-svg [svgSize]="'xs'"></app-user-image-svg>
+                </div>
+            </div>
+
+            <!-- Profile <768px -->
+            <div class="w-100"
+                 id="profile-sm">
+
+                <!-- SVG -->
+                <div class="d-inline-block">
+                    <app-user-image-svg [svgSize]="'xs'"></app-user-image-svg>
+                </div>
+            </div>
+
+        </button>
+
+        <!-- Profile Options -->
+        <div aria-labelledby="profile"
+             class="p-1"
+             ngbDropdownMenu>
+
+            <!-- Name -->
+            <div class="row no-gutters px-1">
+                <p class="col m-0">
+                    <small>
+                        {{this.fullName}}
+                    </small>
+                </p>
+            </div>
+
+            <!-- Email -->
+            <div class="row no-gutters px-1">
+                <p class="col m-0">
+                    <small>
+                        {{this.email}}
+                    </small>
+                </p>
+            </div>
+
+            <!-- Divider -->
+            <div class="dropdown-divider m-1"></div>
+
+            <!-- Edit Profile -->
+            <div [routerLink]="userProfilePath"
+                 class="row m-0 p-1"
+                 ngbDropdownItem>
+
+                <!-- SVG -->
+                <div class="d-inline-block p-1">
+                    <app-user-image-svg [svgSize]="'xs'"></app-user-image-svg>
+                </div>
+
+                <!-- Title -->
+                <div class="d-inline-block p-1">
+                    <p class="m-0">
+                        Edit Profile
+                    </p>
+                </div>
+            </div>
+
+            <!-- Sign Out -->
+            <div (click)="this.signOutUser()"
+                 class="row m-0 p-1"
+                 ngbDropdownItem>
+
+                <!-- SVG -->
+                <div class="d-inline-block p-1">
+                    <app-sign-out-svg [svgSize]="'xs'"></app-sign-out-svg>
+                </div>
+
+                <div class="d-inline-block p-1">
+                    <p class="m-0">
+                        Sign Out
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

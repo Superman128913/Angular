@@ -1,0 +1,126 @@
+<!-- Cards -->
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+
+    <!-- Traceability -->
+    <div class="col mb-3">
+
+        <!-- Card -->
+        <div class="card flex-row h-100">
+
+            <!-- SVG -->
+            <div class="d-flex align-items-center m-3">
+                <app-traceability-svg [svgSize]="'lg'"></app-traceability-svg>
+            </div>
+
+            <div class="d-flex flex-column flex-grow-1">
+
+                <!-- Body -->
+                <div class="card-body my-3 mr-3 p-0">
+
+                    <!-- Title -->
+                    <h5 class="card-title m-0">
+                        Traceability
+                    </h5>
+
+                    <!-- Text -->
+                    <p class="card-text m-0">
+                        {{traceabilityDescription}}
+                    </p>
+
+                    <a [routerLink]="traceabilityPath"
+                       [title]="traceabilityTitle"
+                       class="stretched-link"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- File Share -->
+    <div class="col mb-3">
+
+        <!-- Card -->
+        <div class="card flex-row h-100">
+
+            <!-- SVG -->
+            <div class="d-flex align-items-center m-3">
+                <app-file-share-svg [svgSize]="'lg'"></app-file-share-svg>
+            </div>
+
+            <div class="d-flex flex-column flex-grow-1">
+
+                <!-- Body -->
+                <div class="card-body my-3 mr-3 p-0">
+
+                    <!-- Title -->
+                    <h5 class="card-title m-0">
+                        File Share
+                    </h5>
+
+                    <!-- Text -->
+                    <p class="card-text m-0">
+                        {{fileShareDescription}}
+                    </p>
+
+                    <a [routerLink]="fileSharePath"
+                       [title]="fileShareTitle"
+                       class="stretched-link"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contracts Manager -->
+<!--    <div class="col mb-3">-->
+<!--        <div class="card flex-row h-100">-->
+    <!--            <div class="d-flex align-items-center m-3">-->
+    <!--                <app-contracts-manager-svg [svgSize]=""></app-contracts-manager-svg>-->
+    <!--            </div>-->
+<!--            <div class="d-flex flex-column flex-grow-1">-->
+<!--                <div class="card-body my-3 mr-3 p-0">-->
+<!--                    <h5 class="card-title m-0">-->
+<!--                        Contracts Manager-->
+    <!--                    </h5>-->
+    <!--                    <p class="card-text m-0">-->
+    <!--                        {{contractsManagerDescription}}-->
+    <!--                    </p>-->
+    <!--                    <a [routerLink]="contractsManagerPath" class="stretched-link" [title]="contactsManagerTitle"></a>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+
+    <!-- Blockchain -->
+    <div class="col mb-3">
+
+        <!-- Card -->
+        <div class="card flex-row h-100">
+
+            <!-- SVG -->
+            <div class="d-flex align-items-center m-3">
+                <app-blockchain-svg [svgSize]="'lg'"></app-blockchain-svg>
+            </div>
+
+            <div class="d-flex flex-column flex-grow-1">
+
+                <!-- Body -->
+                <div class="card-body my-3 mr-3 p-0">
+
+                    <!-- Title -->
+                    <h5 class="card-title m-0">
+                        Blockchain
+                    </h5>
+
+                    <!-- Text -->
+                    <p class="card-text m-0">
+                        {{blockchainDescription}}
+                    </p>
+
+                    <a [routerLink]="blockchainPath"
+                       [title]="blockchainTitle"
+                       class="stretched-link"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,81 @@
+<div class="icon-nav">
+    <ul>
+        <li class="onhover-div mobile-search search-widgets" id="search-widgets">
+            <div (click)="searchToggle()">
+                <img alt="" class="img-fluid" src="../../../src/assets/images/icon/search.png">
+                <i class="ti-search"></i>
+            </div>
+            <div [ngStyle]="{'display': search ? 'block' : 'none' }" class="search-overlay" id="search-overlay">
+                <div>
+                    <span (click)="searchToggle()" class="closebtn" title="Close Overlay">×</span>
+                    <div class="overlay-content">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <form>
+                                        <div class="form-group">
+                                            <input class="form-control" id="exampleInputPassword1"
+                                                   placeholder="Search a Product"
+                                                   type="text">
+                                        </div>
+                                        <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <li class="onhover-div mobile-cart">
+            <div>
+                <a [routerLink]="['/shop/cart']">
+                    <img alt="" class="img-fluid" src="../../../src/assets/images/icon/cart.png">
+                    <i class="ti-shopping-cart"></i>
+                </a>
+            </div>
+            <span class="cart_qty_cls">{{ products.length }}</span>
+            <ul *ngIf='!products.length' class="show-div shopping-cart">
+                <h5>Your cart is currently empty.</h5>
+            </ul>
+            <ul *ngIf='products.length' class="show-div shopping-cart">
+                <li *ngFor="let product of products">
+                    <div class="media">
+                        <a [routerLink]="['/shop/product/left/sidebar/', product.title.replace(' ', '-')]">
+                            <img [alt]="product?.images[0].alt" [src]="product?.images[0].src" class="mr-3">
+                        </a>
+                        <div class="media-body">
+                            <a [routerLink]="['/shop/product/left/sidebar/', product.title.replace(' ', '-')]">
+                                <h4>{{ product?.title }}</h4>
+                            </a>
+                            <h4>
+                <span>
+                  {{ product?.quantity }} x
+                    {{ product?.price * productService?.Currency.price | discount:product | currency:productService?.Currency.currency:'symbol' }}
+                </span>
+                            </h4>
+                        </div>
+                    </div>
+                    <div (click)="removeItem(product)" class="close-circle">
+                        <a href="javascript:void(0)"><i aria-hidden="true" class="fa fa-times"></i></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="total">
+                        <h5>subtotal :
+                            <span>{{ getTotal | async | currency:productService?.Currency.currency:'symbol' }}</span>
+                        </h5>
+                    </div>
+                </li>
+                <li>
+                    <div class="buttons">
+                        <a [routerLink]="['/shop/cart']" class="view-cart">view cart</a>
+                        <a [routerLink]="['/shop/checkout']" class="checkout">checkout</a>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

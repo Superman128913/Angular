@@ -1,0 +1,123 @@
+<!-- Form -->
+<form (ngSubmit)="createCompanyUserInvite(companyUserInviteForm.value)"
+      [formGroup]="companyUserInviteForm"
+      class="mx-auto">
+
+    <!-- Email -->
+    <div class="form-group row">
+
+        <!-- Input Group -->
+        <div class="input-group col">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <!-- SVG -->
+                <span class="input-group-text rounded-left">
+                    <app-email-svg svgSize="sm"></app-email-svg>
+                </span>
+            </div>
+
+            <!-- Input -->
+            <input [ngClass]="{'is-invalid': formControls['email'].invalid && (formControls['email'].touched || formControls['email'].dirty)}"
+                   class="form-control rounded-right"
+                   [formControlName]="'email'"
+                   name="email"
+                   [placeholder]=emailPlaceholder
+                   required
+                   autocomplete="email"
+                   type="email">
+
+            <!-- Invalid Feedback -->
+            <div *ngIf="formControls['email'].invalid && (formControls['email'].touched || formControls['email'].dirty)"
+                 class="invalid-feedback">
+                <div *ngIf="formControls['email'].errors?.required">
+                    An email address is required.
+                </div>
+                <div *ngIf="formControls['email'].errors?.pattern">
+                    Please provide a valid email address.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Roles -->
+    <div *ngIf="this.isUserCompanyAdministrator"
+         class="form-group row m-0">
+
+        <!-- Input Group -->
+        <div class="input-group col p-0">
+
+            <!-- Table -->
+            <table class="table table-sm">
+                <thead>
+                <tr>
+                    <th colspan="2" scope="col">
+                        Role
+                    </th>
+                    <th scope="col">
+                        Able to
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <!-- Input -->
+                        <input (change)="onCheckboxChange($event)"
+                               class="form-check-input ml-0"
+                               id="administrator"
+                               type="checkbox"
+                               value="administrator">
+                    </td>
+                    <td class="pl-3">
+                        <!-- Label -->
+                        <label class="form-check-label"
+                               for="administrator">
+                            Administrator
+                        </label>
+                    </td>
+                    <td>
+                        <!-- TODO - show as invalid -->
+                        Add, remove, and set company users, divisions, addresses, and domains.
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Tip -->
+    <div class="form-group row m-0">
+
+        <!-- Input Group -->
+        <div class="input-group col p-0">
+            <p>
+                <b>
+                    TIP
+                </b>
+                - You can change users and their roles at any time on the Users page.
+            </p>
+        </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="form-group">
+        <!-- Invite -->
+        <button [disabled]="companyUserInviteForm.invalid"
+                class="btn btn-primary btn-block rounded"
+                type="submit">
+            Invite
+        </button>
+    </div>
+
+    <!-- TODO - handle many company names -->
+    <!-- Note -->
+    <p class="my-3">
+        By clicking the "Invite" button, you are inviting the user to be a user of your organization with the selected
+        roles.
+    </p>
+
+    <!-- Dev Tools -->
+    <app-company-dev-tools></app-company-dev-tools>
+
+</form>

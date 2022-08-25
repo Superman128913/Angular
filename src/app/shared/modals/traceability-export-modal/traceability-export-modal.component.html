@@ -1,0 +1,42 @@
+<!-- Header -->
+<div class="modal-header">
+    <!-- Title -->
+    <h6 class="modal-title">
+        Export selected documents
+    </h6>
+    <!-- Close -->
+    <button (click)="closeModal('Dismissed')"
+            aria-label="Close"
+            class="btn close"
+            title="Cancel"
+            type="button">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<!-- Body -->
+<div class="modal-body row mb-3">
+    <div class="col-3">
+        <button (click)="closeModal('print')" class="btn btn-dark">
+            <i class="bi bi-printer"></i> Print
+        </button>
+    </div>
+
+    <div class="col-3">
+        <button (click)="closeModal('pdf')" class="btn btn-dark">
+            <i class="bi bi-filetype-pdf"></i> PDF
+        </button>
+    </div>
+
+    <div class="col-3">
+        <button (click)="closeModal('excel')" class="btn btn-dark">
+            <i class="bi bi-file-earmark-excel"></i> Excel
+        </button>
+    </div>
+
+    <div class="col-3">
+        <button (click)="closeModal('csv')" class="btn btn-dark">
+            <i class="bi bi-filetype-csv"></i> CSV
+        </button>
+    </div>
+</div>

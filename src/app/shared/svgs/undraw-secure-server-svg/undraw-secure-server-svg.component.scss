@@ -1,0 +1,35 @@
+@import "../../../../styles/custom-variables";
+
+svg {
+  display: inline-block;
+  font-size: inherit;
+  color: inherit;
+}
+
+.red_ribbon {
+  fill: $red_ribbon;
+}
+
+.woodsmoke {
+  fill: $woodsmoke;
+}
+
+.woodsmoke_light {
+  fill: $woodsmoke_light;
+}
+
+.woodsmoke_lighter {
+  fill: $woodsmoke_lighter;
+}
+
+.alabaster {
+  fill: $alabaster;
+}
+
+.alabaster_light {
+  fill: $alabaster_light;
+}
+
+.skin {
+  fill: $skin_navajo_white;
+}

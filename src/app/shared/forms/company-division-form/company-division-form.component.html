@@ -1,0 +1,488 @@
+<!-- Form -->
+<form [formGroup]="companyDivisionForm"
+      class="mx-auto">
+
+    <!-- Name -->
+    <div class="form-group row">
+
+        <!-- Label -->
+        <label class="col-sm-2 col-form-label d-flex align-items-center"
+               for="name">
+            Name
+        </label>
+
+        <!-- Input Group -->
+        <div class="input-group col">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <!-- SVG -->
+                <span [class.rounded-left]="!companyDivisionForm.disabled"
+                      [class.rounded]="companyDivisionForm.disabled"
+                      class="input-group-text rounded-left justify-content-center">
+                    <app-company-svg svgSize="sm"></app-company-svg>
+                </span>
+            </div>
+
+            <!-- Input -->
+            <input [class]="fieldClass"
+                   [ngClass]="{ 'is-invalid': formControls['name'].invalid && (formControls['name'].touched || formControls['name'].dirty) }"
+                   class="rounded-right"
+                   [formControlName]="'name'"
+                   id="name"
+                   name="name"
+                   placeholder="Aeroplicity"
+                   required
+                   autocomplete="organization"
+                   type="text">
+
+            <!-- Invalid Feedback -->
+            <div *ngIf="formControls['name'].invalid && (formControls['name'].touched || formControls['name'].dirty)"
+                 class="invalid-feedback">
+                <div *ngIf="formControls['name'].errors?.required">
+                    A name is required.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Website -->
+    <div class="form-group row">
+
+        <!-- Label -->
+        <label class="col-sm-2 col-form-label d-flex align-items-center"
+               for="website">
+            Website
+        </label>
+
+        <!-- Input Group -->
+        <div class="input-group col">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <!-- SVG -->
+                <span [class.rounded-left]="!companyDivisionForm.disabled"
+                      [class.rounded]="companyDivisionForm.disabled"
+                      class="input-group-text rounded-left justify-content-center">
+                    <app-website-svg svgSize="sm"></app-website-svg>
+                </span>
+            </div>
+
+            <!-- Company Division Website Input -->
+            <input [class]="fieldClass"
+                   [ngClass]="{ 'is-invalid': formControls['website'].invalid && (formControls['website'].touched || formControls['website'].dirty) }"
+                   class="rounded-right"
+                   [formControlName]="'website'"
+                   id="website"
+                   name="website"
+                   placeholder="www.aeroplicity.com"
+                   autocomplete="url"
+                   type="text">
+
+            <!-- Invalid Feedback -->
+            <div *ngIf="formControls['website'].invalid && (formControls['website'].touched || formControls['website'].dirty)"
+                 class="invalid-feedback">
+                <div *ngIf="formControls['website'].errors?.pattern">
+                    Please provide a valid website address.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Email -->
+    <div class="form-group row">
+
+        <!-- Label -->
+        <label class="col-sm-2 col-form-label d-flex align-items-center"
+               for="email">
+            Email
+        </label>
+
+        <div class="input-group col">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <!-- SVG -->
+                <span class="input-group-text rounded-left justify-content-center">
+                    <app-email-svg svgSize="sm"></app-email-svg>
+                </span>
+            </div>
+
+            <!-- Company Division Email Input -->
+            <input [class]="fieldClass"
+                   [ngClass]="{ 'is-invalid': formControls['email'].invalid && (formControls['email'].touched || formControls['email'].dirty) }"
+                   class="rounded-right"
+                   [formControlName]="'email'"
+                   id="email"
+                   name="email"
+                   placeholder="sales@aeroplicity.com"
+                   autocomplete="email"
+                   type="text">
+
+            <!-- Invalid Feedback -->
+            <div *ngIf="formControls['email'].invalid && (formControls['email'].touched || formControls['email'].dirty)"
+                 class="invalid-feedback">
+                <div *ngIf="formControls['email'].errors?.pattern">
+                    Please provide a valid email address.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phone -->
+    <div class="form-group row">
+
+        <!-- Label -->
+        <label class="col-sm-2 col-form-label d-flex align-items-center"
+               for="phone">
+            Phone
+        </label>
+
+        <!-- Input Group -->
+        <div class="input-group col">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <!-- SVG -->
+                <span [class.rounded-left]="!companyDivisionForm.disabled"
+                      [class.rounded]="companyDivisionForm.disabled"
+                      class="input-group-text rounded-left justify-content-center">
+                    <app-phone-svg></app-phone-svg>
+                </span>
+            </div>
+
+            <!-- Input -->
+            <input [class]="fieldClass"
+                   [ngClass]="{ 'is-invalid': formControls['phone'].invalid && (formControls['phone'].touched || formControls['phone'].dirty) }"
+                   class="rounded-right"
+                   [formControlName]="'phone'"
+                   id="phone"
+                   name="phone"
+                   placeholder="213-442-1712"
+                   autocomplete="tel"
+                   type="text">
+
+        </div>
+    </div>
+
+    <!-- Fax -->
+    <div class="form-group row">
+
+        <!-- Label -->
+        <label class="col-sm-2 col-form-label d-flex align-items-center"
+               for="fax">
+            Fax
+        </label>
+
+        <!-- Input Group -->
+        <div class="input-group col">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <span [class.rounded-left]="!companyDivisionForm.disabled"
+                      [class.rounded]="companyDivisionForm.disabled"
+                      class="input-group-text rounded-left justify-content-center">
+                    <app-fax-svg></app-fax-svg>
+                </span>
+            </div>
+
+            <!-- Input -->
+            <input [class]="fieldClass"
+                   [ngClass]="{ 'is-invalid': formControls['fax'].invalid && (formControls['fax'].touched || formControls['fax'].dirty) }"
+                   class="rounded-right"
+                   [formControlName]="'fax'"
+                   id="fax"
+                   name="fax"
+                   placeholder="555-123-1234"
+                   autocomplete="tel"
+                   type="text">
+
+        </div>
+    </div>
+
+    <!-- EIN -->
+    <div class="form-group row">
+
+        <!-- Label -->
+        <label class="col-sm-2 col-form-label d-flex align-items-center"
+               for="ein">
+            EIN
+        </label>
+
+        <!-- Input Group -->
+        <div class="input-group col">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <span [class.rounded-left]="!companyDivisionForm.disabled"
+                      [class.rounded]="companyDivisionForm.disabled"
+                      class="input-group-text rounded-left justify-content-center">
+                    <app-ein-svg></app-ein-svg>
+                </span>
+            </div>
+
+            <!-- Input -->
+            <input [class]="fieldClass"
+                   [ngClass]="{ 'is-invalid': formControls['ein'].invalid && (formControls['ein'].touched || formControls['ein'].dirty) }"
+                   class="rounded-right"
+                   [formControlName]="'ein'"
+                   id="ein"
+                   name="ein"
+                   placeholder="12-3456789"
+                   autocomplete="on"
+                   type="text">
+
+            <!-- Invalid Feedback -->
+            <div *ngIf="formControls['ein'].invalid && (formControls['ein'].touched || formControls['ein'].dirty)"
+                 class="invalid-feedback">
+                <div *ngIf="formControls['ein'].errors?.minlength || formControls['ein'].errors?.maxlength || formControls['ein'].errors?.pattern">
+                    An Employer Identification Number (EIN) is a 9-digit numeric identifier.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DUNS Number -->
+    <div class="form-group row">
+
+        <!-- Label -->
+        <label class="col-sm-2 col-form-label d-flex align-items-center"
+               for="dunsNumber">
+            DUNS Number
+        </label>
+
+        <!-- Input Group -->
+        <div class="input-group col">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <span [class.rounded-left]="!companyDivisionForm.disabled"
+                      [class.rounded]="companyDivisionForm.disabled"
+                      class="input-group-text rounded-left justify-content-center">
+                    <app-duns-number-svg></app-duns-number-svg>
+                </span>
+            </div>
+
+            <!-- Input -->
+            <input [class]="fieldClass"
+                   [ngClass]="{ 'is-invalid': formControls['dunsNumber'].invalid && (formControls['dunsNumber'].touched || formControls['dunsNumber'].dirty) }"
+                   class="rounded-right"
+                   [formControlName]="'dunsNumber'"
+                   id="dunsNumber"
+                   name="dunsNumber"
+                   placeholder="150483782"
+                   autocomplete="on"
+                   type="text">
+
+            <!-- Invalid Feedback -->
+            <div *ngIf="formControls['dunsNumber'].invalid && (formControls['dunsNumber'].touched || formControls['dunsNumber'].dirty)"
+                 class="invalid-feedback">
+                <div *ngIf="formControls['dunsNumber'].errors?.minlength || formControls['dunsNumber'].errors?.maxlength || formControls['dunsNumber'].errors?.pattern">
+                    A D-U-N-S Number is a 9-digit numeric identifier.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CAGE Code -->
+    <div class="form-group row">
+
+        <!-- Label -->
+        <label class="col-sm-2 col-form-label d-flex align-items-center"
+               for="cageCode">
+            CAGE Code
+        </label>
+
+        <!-- Input Group -->
+        <div class="input-group col">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <span [class.rounded-left]="!companyDivisionForm.disabled"
+                      [class.rounded]="companyDivisionForm.disabled"
+                      class="input-group-text rounded-left justify-content-center">
+                    <app-cage-code-svg></app-cage-code-svg>
+                </span>
+            </div>
+
+            <!-- Input -->
+            <input [class]="fieldClass"
+                   [ngClass]="{ 'is-invalid': formControls['cageCode'].invalid && (formControls['cageCode'].touched || formControls['cageCode'].dirty) }"
+                   class="rounded-right"
+                   [formControlName]="'cageCode'"
+                   id="cageCode"
+                   name="cageCode"
+                   placeholder="A1B2C"
+                   autocomplete="on"
+                   type="text">
+
+            <!-- Invalid Feedback -->
+            <div *ngIf="formControls['cageCode'].invalid && (formControls['cageCode'].touched || formControls['cageCode'].dirty)"
+                 class="invalid-feedback">
+                <div *ngIf="formControls['cageCode'].errors?.minlength || formControls['cageCode'].errors?.maxlength || formControls['cageCode'].errors?.pattern">
+                    A CAGE code is a five-character alphanumeric, unique identifier assigned by
+                    the Defense Logistics Agency (DLA).
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LinkedIn -->
+    <div class="form-group row">
+
+        <!-- Label -->
+        <label class="col-md-12 col-lg-2 col-form-label d-flex align-items-center"
+               for="linkedinUrl">
+            LinkedIn URL
+        </label>
+
+        <!-- Input Group -->
+        <div class="input-group col">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <span class="input-group-text rounded-left justify-content-center rounded">
+                    <app-linkedin-svg svgSize="sm"></app-linkedin-svg>
+                </span>
+            </div>
+
+            <!-- Input -->
+            <input class="form-control-plaintext pr-0"
+                   disabled
+                   type="text"
+                   value="linkedin.com/company/">
+
+            <!-- Input -->
+            <input [class]="fieldClass"
+                   [ngClass]="{ 'is-invalid': formControls['linkedinUrl'].invalid && (formControls['linkedinUrl'].touched || formControls['linkedinUrl'].dirty) }"
+                   autocomplete="on"
+                   [formControlName]="'linkedinUrl'"
+                   id="linkedinUrl"
+                   name="linkedinUrl"
+                   class="rounded"
+                   placeholder="aeroplicity"
+                   type="text">
+
+            <!-- Invalid Feedback -->
+            <div *ngIf="formControls['linkedinUrl'].invalid && (formControls['linkedinUrl'].touched || formControls['linkedinUrl'].dirty)"
+                 class="invalid-feedback">
+                <div *ngIf="formControls['linkedinUrl'].errors?.pattern">
+                    Please provide a valid LinkedIn url.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Twitter -->
+    <div class="form-group row">
+
+        <!-- Label -->
+        <label class="col-sm-2 col-form-label d-flex align-items-center"
+               for="twitterHandle">
+            Twitter Handle
+        </label>
+
+        <!-- Input Group -->
+        <div class="input-group col">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <span [class.rounded-left]="!companyDivisionForm.disabled"
+                      [class.rounded]="companyDivisionForm.disabled"
+                      class="input-group-text rounded-left justify-content-center">
+                    <app-twitter-svg svgSize="sm"></app-twitter-svg>
+                </span>
+            </div>
+
+            <!-- Input -->
+            <input [class]="fieldClass"
+                   [formControlName]="'twitterHandle'"
+                   class="rounded-right"
+                   [ngClass]="{ 'is-invalid': formControls['twitterHandle'].invalid && (formControls['twitterHandle'].touched || formControls['twitterHandle'].dirty) }"
+                   autocomplete="on"
+                   id="twitterHandle"
+                   placeholder="@aeroplicity"
+                   name="twitterHandle"
+                   type="text">
+
+            <!-- Invalid Feedback -->
+            <div *ngIf="formControls['twitterHandle'].invalid && (formControls['twitterHandle'].touched || formControls['twitterHandle'].dirty)"
+                 class="invalid-feedback">
+                <div *ngIf="formControls['twitterHandle'].errors?.pattern">
+                    Please provide a valid Twitter handle.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About -->
+    <div class="form-group row">
+
+        <!-- Label -->
+        <label class="col-sm-2 col-form-label d-flex align-items-center"
+               for="about">
+            About
+        </label>
+
+        <!-- Input Group -->
+        <div class="input-group col">
+
+            <!-- Textarea -->
+            <textarea [class]="fieldClass"
+                      rows="4"
+                      [ngClass]="{ 'is-invalid': formControls['about'].invalid && (formControls['about'].touched || formControls['about'].dirty) }"
+                      class="rounded-right"
+                      [formControlName]="'about'"
+                      id="about"
+                      name="about"
+                      placeholder="Add an about us with a brief overview of your products and services.">
+            </textarea>
+        </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="form-group">
+        <!-- Register -->
+        <button (click)="registerCompanyDivision(companyDivisionForm.value)"
+                *ngIf="!companyDivision"
+                [disabled]="companyDivisionForm.invalid"
+                class="btn btn-primary btn-block rounded"
+                type="submit">
+            Register
+        </button>
+        <!-- Edit -->
+        <button (click)="enableForm()"
+                *ngIf="companyDivision && companyDivisionForm.disabled"
+                class="btn btn-primary btn-block rounded"
+                type="button">
+            Edit
+        </button>
+        <!-- Update -->
+        <button (click)="updateCompanyDivision(companyDivisionForm.value)"
+                *ngIf="companyDivision && !companyDivisionForm.disabled"
+                [disabled]="companyDivisionForm.invalid"
+                class="btn btn-primary btn-block rounded"
+                type="submit">
+            Update
+        </button>
+        <!-- Delete -->
+        <button (click)="deleteCompanyDivision()"
+                *ngIf="companyDivision && !companyDivisionForm.disabled"
+                class="btn btn-primary btn-block rounded"
+                type="submit">
+            Delete
+        </button>
+    </div>
+
+    <!-- Note -->
+    <p *ngIf="!companyDivision"
+       class="my-3">
+        By clicking the "Register" button, you are creating a division within your
+        company. This division should be a subsidiary of your company.
+    </p>
+
+    <!-- Dev Tools -->
+    <app-company-dev-tools [companyDivision]="companyDivision">
+    </app-company-dev-tools>
+
+</form>

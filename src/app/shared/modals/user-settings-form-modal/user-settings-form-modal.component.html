@@ -1,0 +1,46 @@
+<!-- Header -->
+<div class="modal-header">
+    <!-- Title -->
+    <h4 class="modal-title">
+        Enable Multi Factor Authentication
+    </h4>
+    <!-- Close -->
+    <button (click)="closeModal(false)"
+            aria-label="Close"
+            class="btn close"
+            title="Close"
+            type="button">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<!-- Body -->
+<div class="modal-body">
+    <qrcode [errorCorrectionLevel]="'M'" [qrdata]="this.url" [width]="qrCodeWidth" class="text-center"></qrcode>
+    <p>
+        Install an authenticator app on your mobile device if you don't already have one.
+    </p>
+    <p>
+        Scan the above QR code with the authenticator.
+    </p>
+</div>
+
+<!-- Body -->
+<div class="modal-body border-top">
+    <p>
+        Enter the 2-step verification code from your authenticator app
+    </p>
+    <code-input (codeCompleted)="onCodeCompleted($event)"
+                [codeLength]="6"
+                [initialFocusField]="0"
+                [inputType]="'text'"
+                [isCodeHidden]="false">
+    </code-input>
+</div>
+
+<!-- Footer -->
+<div class="modal-footer">
+    <p class="mx-auto">
+        Need help? Contact us at <a href="mailto:{{supportEmail}}">{{supportEmail}}</a>.
+    </p>
+</div>

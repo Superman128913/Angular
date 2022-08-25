@@ -1,0 +1,114 @@
+<nav class="navbar navbar-dark bg-dark flex-fill m-0 p-0">
+    <div class="container-fluid m-0 p-0 flex-nowrap">
+
+        <!-- Branding -->
+        <a [routerLink]="[homePath]"
+           class="navbar-brand m-0 p-0">
+            <img [alt]="invertedLogo.alt"
+                 id="main-logo-lg"
+                 [src]="invertedLogo.url"
+                 [title]="invertedLogo.title">
+            <img [alt]="shortLogo.alt"
+                 [src]="shortLogo.url"
+                 [title]="shortLogo.title"
+                 id="main-logo-sm">
+        </a>
+
+        <!-- Search -->
+        <!--<div class="flex-fill position-relative">-->
+        <!--<app-header-search></app-header-search>-->
+        <!--</div>-->
+
+        <!-- Signed In -->
+        <div *ngIf="userApiService.isUserSignedIn()"
+             class="navbar-nav flex-row ml-3">
+
+            <!-- Account -->
+            <a [routerLink]="[userPath]"
+               class="nav-link d-inline-flex align-items-center m-0 py-0 pl-0 pr-3">
+
+                <!-- SVG -->
+                <app-user-image-svg [svgSize]="'sm'"></app-user-image-svg>
+
+                <span class="px-1 m-0 text-nowrap">
+                    <!-- TODO - Add name -->
+                    <div class="m-0">
+                        {{message}}
+                    </div>
+                    Account
+                </span>
+
+            </a>
+
+            <!-- Company -->
+            <a *ngIf="userStorageService.isUserInOrganization()"
+               [routerLink]="[companyPath]"
+               class="nav-link d-inline-flex align-items-center m-0 py-0 pl-0 pr-3">
+
+                <!-- SVG -->
+                <app-company-svg [svgSize]="'sm'"></app-company-svg>
+
+                <span class="px-1 m-0 text-nowrap">
+                    Company
+                </span>
+
+            </a>
+
+            <!-- Sign Out -->
+            <a (click)="this.userApiService.signOutUser()"
+               [routerLink]="homePath"
+               class="nav-link d-inline-flex align-items-center m-0 py-0 pl-0 pr-3">
+
+                <!-- SVG -->
+                <app-sign-out-svg [svgSize]="'sm'"></app-sign-out-svg>
+
+                <span class="px-1 m-0 text-nowrap">
+                    Sign Out
+                </span>
+
+            </a>
+
+        </div>
+
+        <!-- Not Signed In -->
+        <div *ngIf="!userApiService.isUserSignedIn()"
+             class="navbar-nav flex-row ml-3">
+
+            <!-- Register -->
+            <a [routerLink]="[registerPath]"
+               class="nav-link d-inline-flex align-items-center m-0 py-0 pl-0 pr-3">
+
+                <!-- SVG -->
+                <app-user-image-svg [svgSize]="'sm'"></app-user-image-svg>
+
+                <span class="px-1 m-0 text-nowrap">
+                    Register
+                </span>
+
+            </a>
+
+            <!-- Sign In -->
+            <a [routerLink]="[signInPath]"
+               class="nav-link d-inline-flex align-items-center m-0 py-0 pl-0 pr-3">
+
+                <!-- SVG -->
+                <app-sign-in-svg [svgSize]="'sm'"></app-sign-in-svg>
+
+                <span class="px-1 m-0 text-nowrap">
+                    Sign In
+                </span>
+
+            </a>
+
+            <!-- Cart -->
+            <!-- TODO - add text/update icon when cart has items in it -->
+            <!--<a [routerLink]="['/shop/cart']" class="nav-link d-inline-flex align-items-center py-0 pl-0 pr-3">-->
+            <!--<svg class="bi bi-cart" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">-->
+            <!--<path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>-->
+            <!--</svg>-->
+            <!--<span class="m-0">Cart</span>-->
+            <!--</a>-->
+
+        </div>
+    </div>
+</nav>

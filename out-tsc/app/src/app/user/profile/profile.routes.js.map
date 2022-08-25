@@ -1,0 +1,1 @@
+{"version":3,"file":"profile.routes.js","sourceRoot":"","sources":["../../../../../../src/app/user/profile/profile.routes.ts"],"names":[],"mappings":"AAEA,cAAc;AACd,OAAO,EAAC,gBAAgB,EAAC,MAAM,qBAAqB,CAAC;AACrD,OAAO,EAAC,aAAa,EAAC,MAAM,8BAA8B,CAAC;AAE3D,MAAM,CAAC,MAAM,cAAc,GAAW;IAClC;QACI,IAAI,EAAE,EAAE;QACR,SAAS,EAAE,gBAAgB;QAC3B,WAAW,EAAE;YACT,aAAa;SAChB;KACJ;CACJ,CAAC"}

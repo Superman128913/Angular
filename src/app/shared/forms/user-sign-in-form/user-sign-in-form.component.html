@@ -1,0 +1,128 @@
+<!-- Form -->
+<form (ngSubmit)="signInUser(userSignInForm.value)"
+      [formGroup]="userSignInForm"
+      class="mx-auto">
+
+    <!-- Email -->
+    <div class="form-group row">
+
+        <!-- Input Group -->
+        <div class="input-group col">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <!-- SVG -->
+                <span class="input-group-text justify-content-center rounded-left">
+                    <app-email-svg svgSize="sm"></app-email-svg>
+                </span>
+            </div>
+
+            <!-- Input -->
+            <input [ngClass]="{ 'is-invalid': formControls['email'].invalid && (formControls['email'].touched || formControls['email'].dirty) }"
+                   class="form-control rounded-right"
+                   [formControlName]="'email'"
+                   name="email"
+                   [placeholder]=emailPlaceholder
+                   required
+                   autocomplete="email"
+                   type="email">
+
+            <!-- Invalid Feedback -->
+            <div *ngIf="formControls['email'].invalid && (formControls['email'].touched || formControls['email'].dirty)"
+                 class="invalid-feedback">
+                <div *ngIf="formControls['email'].errors?.required">
+                    Your email address is required.
+                </div>
+                <div *ngIf="formControls['email'].errors?.pattern">
+                    Please provide a valid email address.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Password -->
+    <div class="form-group row">
+
+        <!-- Input Group -->
+        <div class="input-group col">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <!-- SVG -->
+                <span class="input-group-text justify-content-center rounded-left">
+                    <app-password-svg></app-password-svg>
+                </span>
+            </div>
+
+            <!-- Input -->
+            <input [ngClass]="{ 'is-invalid': formControls['password'].invalid && (formControls['password'].touched || formControls['password'].dirty) }"
+                   [type]="showPassword ? 'text' : 'password'"
+                   class="form-control"
+                   [formControlName]="'password'"
+                   name="password"
+                   placeholder="Password"
+                   autocomplete="current-password"
+                   required>
+
+            <!-- Append -->
+            <div class="input-group-append align-self-center">
+                <!-- SVG -->
+                <div class="input-group-text justify-content-center rounded-right">
+                    <div (click)="togglePassword()"
+                         *ngIf="showPassword">
+                        <app-password-visible-svg></app-password-visible-svg>
+                    </div>
+                    <div (click)="togglePassword()"
+                         *ngIf="!showPassword">
+                        <app-password-hidden-svg></app-password-hidden-svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Invalid Feedback -->
+            <div *ngIf="formControls['password'].invalid && (formControls['password'].touched || formControls['password'].dirty)"
+                 class="invalid-feedback">
+                <div *ngIf="formControls['password'].errors?.required">
+                    A password is required.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="form-group">
+        <!-- Sign In -->
+        <button [disabled]="userSignInForm.invalid"
+                class="btn btn-primary btn-block rounded"
+                type="submit">
+            Sign In
+        </button>
+    </div>
+
+    <!-- Note -->
+    <p class="my-3">
+        By clicking the "Sign In" button, you agree to Aeroplicity's
+        <a [routerLink]="[conditionsOfUsePath]">Conditions of Use</a>
+        and
+        <a [routerLink]="[privacyNoticePath]">Privacy Notice</a>.
+    </p>
+
+    <!-- Break -->
+    <hr/>
+
+    <!-- Links -->
+    <div class="mt-3">
+        <!-- Register -->
+        <p>
+            Don't have an account yet? <a [routerLink]="[registerPath]">Register</a>
+        </p>
+        <!-- Forgot Password -->
+        <p>
+            Forgot your password? <a [routerLink]="[resetPasswordPath]">Reset Password</a>
+        </p>
+    </div>
+
+    <!-- Dev Tools -->
+    <app-user-dev-tools></app-user-dev-tools>
+
+</form>

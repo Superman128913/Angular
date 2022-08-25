@@ -1,0 +1,24 @@
+<!-- Dev Mode -->
+<div *ngIf="isDevMode">
+    <!-- Add Break -->
+    <hr/>
+
+    <!-- Header -->
+    <h4 class="d-block text-center text-warning">
+        Dev Tools - Traceability
+    </h4>
+
+    <!-- Create Request - Existing User -->
+    <button (click)="testCreateTraceabilityRequestExistingUser()"
+            class="btn btn-outline-warning btn-block mx-1"
+            type="button">
+        Create Request - Existing User
+    </button>
+
+    <!-- Create Request - Random User -->
+    <button (click)="testCreateTraceabilityRequestRandomUser()"
+            class="btn btn-outline-warning btn-block mx-1"
+            type="button">
+        Create Request - Random User
+    </button>
+</div>

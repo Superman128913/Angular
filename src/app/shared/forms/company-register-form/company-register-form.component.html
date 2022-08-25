@@ -1,0 +1,105 @@
+<!-- Form -->
+<form (ngSubmit)="registerOrganization(organizationRegistrationForm.value)"
+      [formGroup]="organizationRegistrationForm"
+      class="mx-auto">
+
+    <!-- Name -->
+    <div class="form-group row">
+
+        <!-- Input Group -->
+        <div class="input-group col">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <!-- SVG -->
+                <span class="input-group-text rounded-left justify-content-center">
+                    <app-company-svg svgSize="sm"></app-company-svg>
+                </span>
+            </div>
+
+            <!-- Input -->
+            <input [ngClass]="{ 'is-invalid': formControls['name'].invalid && (formControls['name'].touched || formControls['name'].dirty) }"
+                   class="form-control rounded-right"
+                   [formControlName]="'name'"
+                   name="name"
+                   placeholder="Aeroplicity"
+                   required
+                   autocomplete="organization"
+                   type="text">
+
+            <!-- Invalid Feedback -->
+            <div *ngIf="formControls['name'].invalid && (formControls['name'].touched || formControls['name'].dirty)"
+                 class="invalid-feedback">
+                <div *ngIf="formControls['name'].errors?.required">
+                    Your company name is required.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Domain -->
+    <div class="form-group row">
+
+        <!-- Input Group -->
+        <div class="input-group col">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <span class="input-group-text rounded-left justify-content-center">
+                    <app-website-svg svgSize="sm"></app-website-svg>
+                </span>
+            </div>
+
+            <!-- Input -->
+            <input [ngClass]="{ 'is-invalid': formControls['domain'].invalid && (formControls['domain'].touched || formControls['domain'].dirty) }"
+                   class="form-control rounded-right"
+                   [formControlName]="'domain'"
+                   name="domain"
+                   placeholder="aeroplicity.com"
+                   autocomplete="on"
+                   type="text">
+
+            <!-- Invalid Feedback -->
+            <div *ngIf="formControls['domain'].dirty && (formControls['domain'].invalid || formControls['domain'].touched)"
+                 class="invalid-feedback">
+                <div *ngIf="formControls['domain'].errors?.pattern">
+                    Please provide a valid domain name.
+                </div>
+                <div *ngIf="formControls['domain'].errors?.mismatched">
+                    The domain and your email domain must match.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="form-group">
+        <!-- Register -->
+        <button [disabled]="organizationRegistrationForm.invalid"
+                class="btn btn-primary btn-block rounded"
+                type="submit">
+            Register
+        </button>
+    </div>
+
+    <!-- Note -->
+    <p class="my-3">
+        By clicking the "Register" button, you are creating an organization and its initial company. You agree that
+        you have the authority to register on behalf of this organization.
+    </p>
+
+    <!-- Break -->
+    <hr/>
+
+    <!-- Links -->
+    <div class="mt-3">
+        <!-- Join -->
+        <p>
+            Want to join an existing organization? <a [routerLink]="[requestToJoinPath]">Join</a>
+        </p>
+    </div>
+
+    <!-- Dev Tools -->
+    <app-company-dev-tools></app-company-dev-tools>
+
+</form>

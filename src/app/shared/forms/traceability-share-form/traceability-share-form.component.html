@@ -1,0 +1,83 @@
+<!-- Form -->
+<form
+    (submit)="handleShareFiles(traceabilityShareForm.value)"
+    [formGroup]="traceabilityShareForm"
+    class="mx-auto">
+
+    <br />
+    <div class="row">
+        <div class="col-12 pl-5 pr-5 pb-3">
+            <!-- Emails -->
+            <div *ngFor="let email of traceabilityShareForm.get('emails')['controls']; let i = index;"
+                [formArrayName]="'emails'">
+                <!--         emails.controls-->
+
+                <!-- Email -->
+                <div [formGroupName]="i">
+                    <div class="form-group row">
+
+                        <!-- Input Group -->
+                        <div class="input-group col">
+
+                            <!-- Prepend -->
+                            <div class="input-group-prepend align-self-center">
+                                <!-- SVG -->
+                                <span class="input-group-text justify-content-center rounded-left">
+                                    <app-email-svg svgSize="sm"></app-email-svg>
+                                </span>
+                            </div>
+
+                            <!-- Input -->
+                            <input [ngClass]="{ 'is-invalid': email.controls['email'].invalid && (email.controls['email'].touched || email.controls['email'].dirty) }"
+                                class="form-control"
+                                [formControlName]="'email'"
+                                name="email"
+                                placeholder="Email {{i+1}} (i.e. {{emailPlaceholder}})"
+                                [required]="i === 0"
+                                autocomplete="no"
+                                type="email">
+
+                            <!-- Append -->
+                            <div class="input-group-append">
+                                <!-- Add -->
+                                <button (click)="addEmail()"
+                                        *ngIf="(i + 1) === emails.length"
+                                        class="btn btn-outline-secondary btn-block rounded-right"
+                                        type="button">
+                                    <app-plus-svg></app-plus-svg>
+                                </button>
+                                <!-- Remove -->
+                                <button (click)="removeEmail(i)"
+                                        *ngIf="(i + 1) !== emails.length"
+                                        class="btn btn-outline-secondary btn-block rounded-right"
+                                        type="button">
+                                    <app-minus-svg></app-minus-svg>
+                                </button>
+                            </div>
+
+                            <!-- Invalid Feedback -->
+                            <div *ngIf="email.controls['email'].invalid && (email.controls['email'].touched || email.controls['email'].dirty)"
+                                class="invalid-feedback">
+                                <div *ngIf="email.controls['email'].errors?.required">
+                                    Your email address is required.
+                                </div>
+                                <div *ngIf="email.controls['email'].errors?.pattern">
+                                    Please provide a valid email address.
+                                </div>
+                                <div *ngIf="email.controls['email'].errors?.duplicate">
+                                    TEST
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button
+                [disabled]="traceabilityShareForm.invalid"
+                class="btn btn-primary rounded"
+                type="submit">
+                Share
+            </button>
+        </div>
+    </div>
+</form>

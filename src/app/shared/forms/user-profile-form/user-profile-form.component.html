@@ -1,0 +1,407 @@
+<!-- Form -->
+<form (ngSubmit)="updateUserProfile(userProfileForm.value)"
+      [formGroup]="userProfileForm"
+      class="mx-auto">
+
+    <div class="row no-gutters">
+
+        <!-- Picture -->
+        <div class="col-auto align-self-center pr-3 pb-3">
+            <div class="profile-image">
+
+                <!-- SVG -->
+                <!-- User profile image does not exist -->
+                <div *ngIf="!userStorageService.getUserProfileImagePath()">
+                    <app-user-image-svg [svgSize]="'xl'"></app-user-image-svg>
+                </div>
+
+                <!-- Image -->
+                <!-- User profile image does exist -->
+                <div *ngIf="userStorageService.getUserProfileImagePath()">
+                    <img [src]="userStorageService.getUserProfileImagePath()"
+                         alt="Profile Image"
+                         class="img-fluid">
+                </div>
+
+                <!-- Input -->
+                <input (change)="updateUserProfileImage($event.target['files'][0])"
+                       accept="image/*"
+                       class="w-100 h-100"
+                       [multiple]="false"
+                       name="profile-image"
+                       type="file">
+
+            </div>
+        </div>
+
+        <!-- Full Name -->
+        <div class="col">
+
+            <!-- First Name -->
+            <div class="form-group row">
+
+                <!-- Label -->
+                <label class="col-2 col-sm-3 col-form-label d-flex align-items-center"
+                       for="firstName">
+                    First Name
+                </label>
+
+                <!-- Input Group -->
+                <div class="col input-group">
+
+                    <!-- Prepend -->
+                    <div class="input-group-prepend align-self-center">
+                        <!-- SVG -->
+                        <span [class.rounded-left]="!userProfileForm.disabled"
+                              [class.rounded]="userProfileForm.disabled"
+                              class="input-group-text justify-content-center">
+                            <app-user-first-name-svg></app-user-first-name-svg>
+                        </span>
+                    </div>
+
+                    <!-- Input -->
+                    <input [class]="fieldClass"
+                           [formControlName]="firstName"
+                           [placeholder]="placeholderText"
+                           [ngClass]="{ 'is-invalid': formControls[firstName].invalid && (formControls[firstName].touched || formControls[firstName].dirty) }"
+                           id="firstName"
+                           name="firstName"
+                           required
+                           autocomplete="given-name"
+                           type="text">
+
+                    <!-- Invalid Feedback -->
+                    <div *ngIf="formControls[firstName].invalid && (formControls[firstName].touched || formControls[firstName].dirty)"
+                         class="invalid-feedback">
+                        <div *ngIf="formControls[firstName].errors?.required">
+                            Your first name is required.
+                        </div>
+                        <div *ngIf="formControls[firstName].errors?.pattern">
+                            Please provide a valid first name.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Last Name -->
+            <div class="form-group row">
+
+                <!-- Label -->
+                <label class="col-2 col-sm-3 col-form-label d-flex align-items-center" for="lastName">
+                    Last Name
+                </label>
+
+                <!-- Input Group -->
+                <div class="col input-group">
+
+                    <!-- Prepend -->
+                    <div class="input-group-prepend align-self-center">
+                        <!-- SVG -->
+                        <span [class.rounded-left]="!userProfileForm.disabled"
+                              [class.rounded]="userProfileForm.disabled"
+                              class="input-group-text justify-content-center">
+                            <app-user-last-name-svg></app-user-last-name-svg>
+                        </span>
+                    </div>
+
+                    <!-- Input -->
+                    <input [class]="fieldClass"
+                           [formControlName]="lastName"
+                           [placeholder]="placeholderText"
+                           [ngClass]="{ 'is-invalid': formControls[lastName].invalid && (formControls[lastName].touched || formControls[lastName].dirty) }"
+                           id="lastName"
+                           name="lastName"
+                           required
+                           autocomplete="family-name"
+                           type="text">
+
+                    <!-- Invalid Feedback -->
+                    <div *ngIf="formControls[lastName].invalid && (formControls[lastName].touched || formControls[lastName].dirty)"
+                         class="invalid-feedback">
+                        <div *ngIf="formControls[lastName].errors?.required">
+                            Your last name is required.
+                        </div>
+                        <div *ngIf="formControls[lastName].errors?.pattern">
+                            Please provide a valid last name.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Organization -->
+    <div class="row form-group">
+
+        <!-- Label -->
+        <label class="col-2 col-form-label d-flex align-items-center">
+            Organization
+        </label>
+
+        <!-- Input Group -->
+        <div class="input-group col">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <!-- SVG -->
+                <span class="input-group-text justify-content-center rounded">
+                    <app-company-svg svgSize="sm"></app-company-svg>
+                </span>
+            </div>
+
+            <!-- Organization -->
+            <div class="p-3">
+                <a (click)="resendConfirmationEmail()"
+                   *ngIf="!userStorageService.isUserConfirmed()">
+                    Confirm your account to register or request to join
+                </a>
+                <p *ngIf="!userStorageService.isUserInOrganization() && userStorageService.isUserConfirmed()"
+                   class="m-0">
+                    <a [routerLink]="[companyRegisterPath]">
+                        Register
+                    </a>
+                    or
+                    <a [routerLink]="[companyJoinPath]">
+                        join
+                    </a>
+                    your organization
+                </p>
+                <a *ngIf="userStorageService.isUserInOrganization()"
+                   [routerLink]="[companyPath]">
+                    Manage your organization
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Title -->
+    <div class="form-group row">
+
+        <!-- Label -->
+        <label class="col-2 col-form-label d-flex align-items-center" for="title">
+            Title
+        </label>
+
+        <!-- Input Group -->
+        <div class="input-group col">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <!-- SVG -->
+                <span [class.rounded-left]="!userProfileForm.disabled"
+                      [class.rounded]="userProfileForm.disabled"
+                      class="input-group-text justify-content-center">
+                    <app-user-title-svg></app-user-title-svg>
+                </span>
+            </div>
+
+            <!-- Input -->
+            <input [class]="fieldClass"
+                   [ngClass]="{ 'is-invalid': formControls['title'].invalid && (formControls['title'].touched || formControls['title'].dirty) }"
+                   [placeholder]="placeholderText"
+                   [formControlName]="'title'"
+                   id="title"
+                   name="title"
+                   required
+                   autocomplete="organization-title"
+                   type="text">
+
+            <!-- Invalid Feedback -->
+            <div *ngIf="formControls['title'].invalid && (formControls['title'].touched || formControls['title'].dirty)"
+                 class="invalid-feedback">
+                <div *ngIf="formControls['title'].errors?.required">
+                    Your title is required.
+                </div>
+                <div *ngIf="formControls['title'].errors?.pattern">
+                    Please provide a valid title.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Email -->
+    <div class="form-group row">
+
+        <!-- Label -->
+        <label class="col-2 col-form-label d-flex align-items-center" for="email">
+            Email
+        </label>
+
+        <!-- Input Group -->
+        <div class="input-group col">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <!-- SVG -->
+                <span [class.rounded-left]="!userProfileForm.disabled"
+                      [class.rounded]="userProfileForm.disabled"
+                      class="input-group-text justify-content-center">
+                    <app-email-svg svgSize="sm"></app-email-svg>
+                </span>
+            </div>
+
+            <!-- Input -->
+            <input [class]="fieldClass"
+                   [ngClass]="{ 'is-invalid': formControls['email'].invalid && (formControls['email'].touched || formControls['email'].dirty) }"
+                   [placeholder]="placeholderText"
+                   [formControlName]="'email'"
+                   id="email"
+                   name="email"
+                   required
+                   autocomplete="email"
+                   type="text">
+
+            <!-- Invalid Feedback -->
+            <div *ngIf="formControls['email'].invalid && (formControls['email'].touched || formControls['email'].dirty)"
+                 class="invalid-feedback">
+                <div *ngIf="formControls['email'].errors?.required">
+                    Your email address is required.
+                </div>
+                <div *ngIf="formControls['email'].errors?.pattern">
+                    Please provide a valid email address.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Password -->
+    <div class="form-group row">
+
+        <!-- Label -->
+        <label class="col-2 col-form-label d-flex align-items-center">
+            Password
+        </label>
+
+        <!-- Input Group -->
+        <div class="input-group col">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <!-- SVG -->
+                <span class="input-group-text justify-content-center rounded">
+                    <app-password-svg></app-password-svg>
+                </span>
+            </div>
+
+            <!-- Change Password Link -->
+            <div class="p-3">
+                <a [routerLink]="[userChangePasswordPath]">
+                    Change your password
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile -->
+    <div class="form-group row">
+
+        <!-- Label -->
+        <label class="col-sm-2 col-form-label d-flex align-items-center" for="mobile">
+            Mobile
+        </label>
+
+        <!-- Input Group -->
+        <div class="input-group col">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <!-- SVG -->
+                <span [class.rounded-left]="!userProfileForm.disabled"
+                      [class.rounded]="userProfileForm.disabled"
+                      class="input-group-text justify-content-center">
+                    <app-phone-svg></app-phone-svg>
+                </span>
+            </div>
+
+            <!-- Input -->
+            <input [class]="fieldClass"
+                   [ngClass]="{ 'is-invalid': formControls['mobile'].invalid && (formControls['mobile'].touched || formControls['mobile'].dirty) }"
+                   [placeholder]="placeholderText"
+                   [formControlName]="'mobile'"
+                   id="mobile"
+                   name="mobile"
+                   required
+                   autocomplete="tel"
+                   type="tel">
+
+            <!-- Invalid Feedback -->
+            <div *ngIf="formControls['mobile'].invalid && (formControls['mobile'].touched || formControls['mobile'].dirty)"
+                 class="invalid-feedback">
+                <div *ngIf="formControls['mobile'].errors?.required">
+                    Your mobile number is required.
+                </div>
+                <div *ngIf="formControls['mobile'].errors?.pattern">
+                    Please provide a valid mobile number.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Work -->
+    <div class="form-group row">
+
+        <!-- Label -->
+        <label class="col-2 col-form-label d-flex align-items-center" for="work">
+            Work
+        </label>
+
+        <!-- Input Group -->
+        <div class="input-group col">
+
+            <!-- Prepend -->
+            <div class="input-group-prepend align-self-center">
+                <!-- SVG -->
+                <span [class.rounded-left]="!userProfileForm.disabled"
+                      [class.rounded]="userProfileForm.disabled"
+                      class="input-group-text justify-content-center">
+                    <app-telephone-svg svgSize="sm"></app-telephone-svg>
+                </span>
+            </div>
+
+            <!-- Input -->
+            <input [class]="fieldClass"
+                   [ngClass]="{ 'is-invalid': formControls['work'].invalid && (formControls['work'].touched || formControls['work'].dirty) }"
+                   [placeholder]="placeholderText"
+                   [formControlName]="'work'"
+                   id="work"
+                   name="work"
+                   required
+                   autocomplete="tel"
+                   type="tel">
+
+            <!-- Invalid Feedback -->
+            <div *ngIf="formControls['work'].invalid && (formControls['work'].touched || formControls['work'].dirty)"
+                 class="invalid-feedback">
+                <div *ngIf="formControls['work'].errors?.required">
+                    Your work number is required.
+                </div>
+                <div *ngIf="formControls['work'].errors?.pattern">
+                    Please provide a valid work number.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="form-group">
+        <!-- Edit -->
+        <button (click)="enableForm()"
+                *ngIf="userProfileForm.disabled"
+                class="btn btn-primary btn-block rounded"
+                type="button">
+            Edit
+        </button>
+        <!-- Update -->
+        <button *ngIf="!userProfileForm.disabled"
+                [disabled]="userProfileForm.invalid"
+                class="btn btn-primary btn-block rounded"
+                type="submit">
+            Update
+        </button>
+    </div>
+
+    <!-- Dev Tools -->
+    <app-user-dev-tools></app-user-dev-tools>
+
+</form>

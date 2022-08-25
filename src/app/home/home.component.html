@@ -1,0 +1,390 @@
+<!-- Home -->
+<div class="container-fluid p-0">
+    <div class="row no-gutters justify-content-center">
+        <div class="col">
+
+            <!-- Header -->
+            <section id="header">
+                <div class="row no-gutters justify-content-center">
+
+                    <!-- Register -->
+                    <div class="col-10 col-lg-6 col-xl-5">
+                        <h1 class="mb-3">
+                            Aeroplicity is building the world's first <a class="red_ribbon">blockchain backed</a>
+                            aerospace and defense platform.
+                        </h1>
+                        <p class="mb-3">
+                            {{ourDescription}}
+                        </p>
+
+                        <!-- Form -->
+                        <app-user-register-home-form></app-user-register-home-form>
+                    </div>
+
+                    <!-- Image -->
+                    <div class="col-10 col-lg-4 col-xl-3 align-self-center text-center text-lg-right">
+                        <app-undraw-online-transactions-svg></app-undraw-online-transactions-svg>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Middle -->
+            <section id="middle">
+                <div class="row no-gutters justify-content-center text-center">
+
+                    <!-- Register -->
+                    <div class="col-10 col-lg-8 col-xl-6">
+
+                        <h2 class="mb-3">
+                            {{userStatement}}.
+                        </h2>
+                        <p class="mb-3">
+                            Create your account, your company, and divisions to keep your organization's information
+                            linked and transferable between one another, invite other users and manage their
+                            permissions. Take control of your company's traceability documentation for parts,
+                            products, and articles and provide traceability to origin, REACH, RoHS, Conflict Minerals,
+                            and qualification data for you and your customers. Stop worrying about what documentation
+                            is classified as controlled unclassified information (CUI) and get notified when and where
+                            your documentation is accessed.
+                        </p>
+                        <!-- Button -->
+                        <button [routerLink]="registerPath"
+                                class="btn btn-primary rounded px-5">
+                            Try it, it's free!
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Platform -->
+            <section id="platform">
+
+                <!-- Header -->
+                <div class="row no-gutters justify-content-center text-center header">
+                    <div class="col-10 col-lg-8 col-xl-6">
+                        <h2>
+                            Our Platform
+                        </h2>
+                        <h4 class="red_ribbon">
+                            Backed by Blockchain
+                        </h4>
+                    </div>
+                </div>
+
+                <!-- CUI -->
+                <div class="row no-gutters justify-content-center py-3">
+                    <!-- Description -->
+                    <div class="col-10 col-lg-4 col-xl-3 order-first">
+                        <h2 class="mb-3">
+                            Built for Controlled Unclassified Information (CUI)
+                        </h2>
+                        <p class="mb-3">
+                            Host sensitive data, regulated workloads, and address the most stringent U.S. government security and compliance requirements.
+                        </p>
+                    </div>
+                    <!-- Image -->
+                    <div class="col-10 col-lg-4 col-xl-3 order-last align-self-center text-center text-lg-right">
+                        <app-undraw-secure-files-svg></app-undraw-secure-files-svg>
+                    </div>
+                </div>
+
+                <!-- Compliance -->
+                <div class="row no-gutters justify-content-center py-3">
+                    <!-- Description -->
+                    <div class="col-10 col-lg-4 col-xl-3 order-first order-sm-first order-md-first order-lg-last">
+                        <h2 class="mb-3">
+                            Engineered for Compliance
+                        </h2>
+                        <p class="mb-3">
+                            Comply with the FedRAMP High baseline, U.S. International Traffic in Arms Regulations (ITAR), Export Administration Regulations
+                            (EAR), Department of Defense (DoD) Cloud Computing Security Requirements Guide (SRG) for Impact Levels 2, 4 and 5, FIPS 140-2,
+                            and other compliance regimes.
+                        </p>
+                    </div>
+                    <!-- Image -->
+                    <div class="col-10 col-lg-4 col-xl-3 order-last order-sm-last order-md-last order-lg-first align-self-center text-center text-lg-left">
+                        <app-undraw-secure-server-svg></app-undraw-secure-server-svg>
+                    </div>
+                </div>
+
+                <!-- Simplicity -->
+                <div class="row no-gutters justify-content-center py-3">
+                    <!-- Description -->
+                    <div class="col-10 col-lg-4 col-xl-3 order-first">
+                        <h2 class="mb-3">
+                            Designed for Simplicity
+                        </h2>
+                        <p class="mb-3">
+                            No matter your organization's structure, manage it without the need for multiple disconnected accounts. Share and transfer data
+                            between your brands and subsidiaries. Configure users to have permissions in some or all of your divisions. Manage multiple
+                            locations for each. And so much more.
+                        </p>
+                    </div>
+                    <!-- Image -->
+                    <div class="col-10 col-lg-4 col-xl-3 order-last align-self-center text-center text-lg-right">
+                        <app-undraw-content-structure-svg></app-undraw-content-structure-svg>
+                    </div>
+                </div>
+
+                <!-- Register -->
+                <div class="row no-gutters justify-content-center py-3 text-center">
+                    <div class="col-10 col-lg-8 col-xl-6">
+                        <!-- Button -->
+                        <button [routerLink]="registerPath"
+                                class="btn btn-primary rounded px-5">
+                            Try it, it's free!
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Traceability -->
+            <section id="traceability">
+
+                <!-- Header -->
+                <div class="row no-gutters justify-content-center text-center header">
+                    <div class="col-10 col-lg-8 col-xl-6">
+                        <h2>
+                            Traceability as a Service
+                        </h2>
+                        <h4 class="red_ribbon">
+                            Backed by Blockchain
+                        </h4>
+                    </div>
+                </div>
+
+                <!-- Upload -->
+                <div class="row no-gutters justify-content-center py-3">
+                    <!-- Description -->
+                    <div class="col-10 col-lg-4 col-xl-3 order-first">
+                        <h2>
+                            Upload and Create A Digital Twin
+                        </h2>
+                        <p>
+                            Guarantee the authenticity of your traceability documentation. Digital twins are created on the blockchain upon upload and documents
+                            are checked against them before every interaction. If you have been storing controlled unclassified information (CUI) in your
+                            systems there are requirements that you may not be meeting, leave those to us and focus on what matters.
+                        </p>
+                    </div>
+                    <!-- Image -->
+                    <div class="col-10 col-lg-4 col-xl-3 order-last align-self-center text-center text-lg-right">
+                        <app-undraw-data-processing-svg></app-undraw-data-processing-svg>
+                    </div>
+                </div>
+
+                <!-- Search -->
+                <div class="row no-gutters justify-content-center py-3">
+                    <!-- Description -->
+                    <div class="col-10 col-lg-4 col-xl-3 order-first order-sm-first order-md-first order-lg-last">
+                        <h2>
+                            Search Documentation Easily
+                        </h2>
+                        <p>
+                            Store important information with your documentation and simply search for what you need when you need it. You can even make
+                            documentation updates which will notify anyone that has access automatically all while keeping record of the old versions.
+                        </p>
+                    </div>
+                    <!-- Image -->
+                    <div class="col-10 col-lg-4 col-xl-3 order-last order-sm-last order-md-last order-lg-first align-self-center text-center text-lg-left">
+                        <app-undraw-file-searching-svg></app-undraw-file-searching-svg>
+                    </div>
+                </div>
+
+                <div class="row no-gutters justify-content-center py-3">
+                    <!-- Description -->
+                    <div class="col-10 col-lg-4 col-xl-3 order-first">
+                        <h2>
+                            Send Requests for Missing Documentation
+                        </h2>
+                        <p>
+                            Stop sending documentation through emails. Emailing, printing, storing, mailing, faxing, and destroying controlled unclassified
+                            information (CUI) has many auditable requirements, most of which are not fully met.
+                        </p>
+                    </div>
+                    <!-- Image -->
+                    <div class="col-10 col-lg-4 col-xl-3 order-last align-self-center text-center text-lg-right">
+                        <app-undraw-export-files-svg></app-undraw-export-files-svg>
+                    </div>
+                </div>
+
+                <div class="row no-gutters justify-content-center py-3">
+                    <!-- Description -->
+                    <div class="col-10 col-lg-4 col-xl-3 order-first order-sm-first order-md-first order-lg-last">
+                        <h2>
+                            Report on Documents and on Incidents
+                        </h2>
+                        <p>
+                            Automate your quality escapes, notify the supply chain when there is a suspected issue. See what documents are accessed in
+                            what locations by what users. Easily identify all known or suspected controlled unclassified information (CUI)
+                            incidents so they can be reported on as required. Make this part of your self-inspection program.
+                        </p>
+                    </div>
+                    <!-- Image -->
+                    <div class="col-10 col-lg-4 col-xl-3 order-last order-sm-last order-md-last order-lg-first align-self-center text-center text-lg-left">
+                        <app-undraw-file-analysis-svg></app-undraw-file-analysis-svg>
+                    </div>
+                </div>
+
+                <div class="row no-gutters justify-content-center py-3">
+                    <div class="col-10 col-lg-8 col-xl-6">
+                        <img src="assets/home/Traceability.png"
+                             class="img-fluid shadow"
+                             alt="Traceability">
+                    </div>
+                </div>
+
+                <!-- Register -->
+                <div class="row no-gutters justify-content-center py-3 text-center">
+                    <div class="col-10 col-lg-8 col-xl-6">
+                        <!-- Button -->
+                        <button [routerLink]="registerPath"
+                                class="btn btn-primary rounded px-5">
+                            Try it, it's free!
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- File Share -->
+            <section id="file-share">
+
+                <!-- Header -->
+                <div class="row no-gutters justify-content-center text-center header">
+                    <div class="col-10 col-lg-8 col-xl-6">
+                        <h2>
+                            File Share as a Service
+                        </h2>
+                        <h4 class="red_ribbon">
+                            Backed by Blockchain
+                        </h4>
+                    </div>
+                </div>
+
+                <!-- Store -->
+                <div class="row no-gutters justify-content-center py-3">
+                    <!-- Description -->
+                    <div class="col-10 col-lg-4 col-xl-3 order-first">
+                        <h2>
+                            Store and sync files and folders and share with anyone
+                        </h2>
+                        <p>
+                            Take your local file share to the cloud. Keep your files up to date and in sync, control access both internally and externally,
+                            access files from any device, share files with anyone, and request files you need.
+                        </p>
+                    </div>
+                    <!-- Image -->
+                    <div class="col-10 col-lg-4 col-xl-3 order-last align-self-center text-center text-lg-right">
+                        <app-undraw-file-sync-svg></app-undraw-file-sync-svg>
+                    </div>
+                </div>
+
+                <!-- Collaborate -->
+                <div class="row no-gutters justify-content-center py-3">
+                    <!-- Description -->
+                    <div class="col-10 col-lg-4 col-xl-3 order-first order-sm-first order-md-first order-lg-last">
+                        <h2>
+                            Collaborate on projects regardless of compliance restrictions
+                        </h2>
+                        <p>
+                            Stop worrying about compliance restrictions. Get notified of when and where files are accessed allowing you the comfort of
+                            knowing your files were accessed by the correct people and in the correct place, off load file request follow-ups to an
+                            automated system that tracks if the request was received and if the file was sent.
+                        </p>
+                    </div>
+                    <!-- Image -->
+                    <div class="col-10 col-lg-4 col-xl-3 order-last order-sm-last order-md-last order-lg-first align-self-center text-center text-lg-left">
+                        <app-undraw-sync-files-svg></app-undraw-sync-files-svg>
+                    </div>
+                </div>
+
+                <!-- File Manager -->
+                <div class="row no-gutters justify-content-center py-3">
+                    <!-- Description -->
+                    <div class="col-10 col-lg-4 col-xl-3 order-first">
+                        <h2>
+                            The Ultimate Data Manager for Controlled Unclassified Data (CUI)
+                        </h2>
+                        <p>
+                            Our industry is littered with improper usage and suboptimal restrictions of controlled unclassified data (CUI). Satisfy you and
+                            your customers' requirements simply by using a simpler, more transparent, and more standardized system.
+                        </p>
+                    </div>
+                    <!-- Image -->
+                    <div class="col-10 col-lg-4 col-xl-3 order-last align-self-center text-center text-lg-right">
+                        <app-undraw-upload-svg></app-undraw-upload-svg>
+                    </div>
+                </div>
+
+                <div class="row no-gutters justify-content-center py-3">
+                    <div class="col-10 col-lg-8 col-xl-6">
+                        <img alt="File Share"
+                             class="img-fluid shadow"
+                             src="assets/home/Traceability.png">
+                    </div>
+                </div>
+
+                <!-- Register -->
+                <div class="row no-gutters justify-content-center py-3 text-center">
+                    <div class="col-10 col-lg-8 col-xl-6">
+                        <!-- Button -->
+                        <button [routerLink]="registerPath"
+                                class="btn btn-primary rounded px-5">
+                            Try it, it's free!
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Blockchain -->
+            <section id="blockchain">
+
+                <!-- Header -->
+                <div class="row no-gutters justify-content-center text-center header">
+                    <div class="col-10 col-lg-8 col-xl-6">
+                        <h2>
+                            Blockchain as a Service
+                        </h2>
+                        <h4 class="red_ribbon">
+                            Backed by Aeroplicity
+                        </h4>
+                    </div>
+                </div>
+
+                <!-- Learn More -->
+                <div class="row no-gutters justify-content-center py-3 text-center">
+                    <div class="col-10 col-lg-8 col-xl-6">
+                        <!-- Link -->
+                        <h2>
+                            <a [routerLink]="blockchainPath">
+                                Click to learn more
+                            </a>
+                        </h2>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <section id="footer">
+                <div class="row no-gutters justify-content-center text-center">
+                    <div class="col-10 col-lg-8 col-xl-6">
+                        <!-- Heading -->
+                        <h4 class="mb-3">
+                            Register and get started with the world\'s first blockchain backed aerospace and defense
+                            platform. It's simple. It's transparent. It's standardized. It's Aeroplicity.
+                        </h4>
+                        <!-- Form -->
+                        <app-user-register-home-form></app-user-register-home-form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<!-- Slider -->
+<!--<app-main-slider></app-main-slider>-->
+
+<!-- Content -->
+
+<!-- Authorized Slider -->
+<!--<app-authorized-slider></app-authorized-slider>-->

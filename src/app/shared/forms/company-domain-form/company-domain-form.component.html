@@ -1,0 +1,97 @@
+<!-- Form -->
+<form [formGroup]="companyDomainsForm"
+      class="mx-auto">
+
+    <!-- Company Domains -->
+    <div *ngFor="let companyDomain of companyDomainsForm.get('companyDomains')['controls']; let i = index;"
+         [formArrayName]="'companyDomains'">
+
+        <!-- Domain -->
+        <div [formGroupName]="i">
+            <div class="form-group row">
+                <!-- Input Group -->
+                <div class="input-group col">
+
+                    <!-- Prepend -->
+                    <div class="input-group-prepend align-self-center">
+                        <!-- SVG -->
+                        <span [class]="{
+                              'rounded' : companyDomain.controls['confirmed'].value === true || companyDomain.controls['confirmed'].value === false,
+                              'rounded-left' : companyDomain.controls['added'].value === true
+                              }"
+                              class="input-group-text justify-content-center">
+                            <app-website-svg [svgSize]="'sm'"></app-website-svg>
+                        </span>
+                    </div>
+
+                    <!-- Input -->
+                    <input [formControlName]="'domain'"
+                           [class]="{
+                           'is-invalid': companyDomain.controls['domain'].invalid && (companyDomain.controls['domain'].touched || companyDomain.controls['domain'].dirty),
+                           'form-control-plaintext' : companyDomain.controls['confirmed'].value === true || companyDomain.controls['confirmed'].value === false,
+                           'form-control' : companyDomain.controls['added'].value === true
+                           }"
+                           name="domain"
+                           placeholder="aeroplicity.com"
+                           autocomplete="no"
+                           type="text">
+
+                    <!-- Append -->
+                    <div class="input-group-append">
+
+                        <!-- Register -->
+                        <button (click)="registerCompanyDomain(companyDomain.value)"
+                                *ngIf="companyDomain.controls['added'].value === true"
+                                [disabled]="companyDomainsForm.invalid"
+                                class="btn btn-outline-primary btn-block rounded-right"
+                                type="button">
+                            Register
+                        </button>
+                        <!-- Confirm -->
+                        <button (click)="resendCompanyDomainConfirmationEmail(companyDomain.controls['domain'].value)"
+                                *ngIf="companyDomain.controls['confirmed'].value === false"
+                                class="btn btn-outline-secondary btn-block rounded-left"
+                                type="button">
+                            Confirm
+                        </button>
+                        <!-- Delete -->
+                        <button (click)="deleteCompanyDomain(i, companyDomain.controls['domain'].value)"
+                                *ngIf="companyDomain.controls['added'].value === false"
+                                [class]="{
+                                'rounded' : companyDomain.controls['confirmed'].value === true,
+                                'rounded-right' : companyDomain.controls['confirmed'].value === false
+                                }"
+                                class="btn btn-outline-danger btn-block"
+                                type="button">
+                            Delete
+                        </button>
+                    </div>
+
+                    <!-- Invalid Feedback -->
+                    <div *ngIf="companyDomain.controls['domain'].invalid && (companyDomain.controls['domain'].touched || companyDomain.controls['domain'].dirty)"
+                         class="invalid-feedback">
+                        <div *ngIf="companyDomain.controls['domain'].errors?.required">
+                            A domain name is required.
+                        </div>
+                        <div *ngIf="companyDomain.controls['domain'].errors?.pattern">
+                            Please provide a valid domain name.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Note -->
+    <p class="my-3">
+        By clicking the "Register" button, you are creating a domain under your organization. All organization admins
+        with emails that are part of this domain will be notified and one will have to approve before the domain is
+        added to your organization.
+    </p>
+
+    <!-- Dev Tools -->
+    <app-company-dev-tools (addCompanyDomainItem)="addCompanyDomain()"
+                           (registerCompanyDomain)="registerCompanyDomain($event)">
+    </app-company-dev-tools>
+
+</form>

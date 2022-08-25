@@ -1,0 +1,34 @@
+@import "../../../../styles/custom-variables";
+
+:host {
+  position: relative;
+  overflow: hidden;
+  margin: 0 0 6px;
+  padding: 10px 10px 10px 10px;
+  width: 300px;
+  border-radius: 3px 3px 3px 3px;
+  color: $alabaster;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+::ng-deep .toast-container {
+  background-color: pink;
+  width: 100%;
+  height: 60px;
+}
+
+::ng-deep .toast-container .ngx-toastr {
+  //padding: 0;
+}
+
+::ng-deep .toast-top-right {
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+//.btn-pink {
+//  -webkit-backface-visibility: hidden;
+//  -webkit-transform: translateZ(0);
+//}

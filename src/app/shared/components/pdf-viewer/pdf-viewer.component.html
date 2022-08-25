@@ -1,0 +1,11 @@
+<!-- PDF Viewer -->
+<pdf-viewer (after-load-complete)="afterLoadComplete($event)"
+            (on-progress)="onProgress($event)"
+            [fit-to-page]=fitToPage
+            [original-size]=originalSize
+            [page]="1"
+            [render-text]="true"
+            [show-all]="true"
+            [src]=src
+            [zoom-scale]="'page-width'">
+</pdf-viewer>

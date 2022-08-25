@@ -1,0 +1,32 @@
+<!-- Header -->
+<div class="modal-header">
+    <!-- Title -->
+    <h4 class="modal-title">
+        Enter the 6-digit code from your authenticator app
+    </h4>
+    <!-- Close -->
+    <button (click)="activeModal.close()"
+            class="btn close"
+            aria-label="Close"
+            title="Close"
+            type="button">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<!-- Body -->
+<div class="modal-body">
+    <code-input (codeCompleted)="onCodeCompleted($event)"
+                [codeLength]="6"
+                [initialFocusField]="0"
+                [inputType]="'text'"
+                [isCodeHidden]="false">
+    </code-input>
+</div>
+
+<!-- Footer -->
+<div class="modal-footer">
+    <p class="text-center">
+        Lost access to your device, contact us at <a href="mailto:{{supportEmail}}">{{supportEmail}}</a>.
+    </p>
+</div>

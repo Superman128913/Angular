@@ -1,0 +1,114 @@
+<div class="row m-0 mb-3">
+    <div class="col-auto col-md d-inline-block"
+         container="body"
+         ngbDropdown
+         placement="right">
+
+        <!-- Division Active -->
+        <button class="btn btn-outline btn-block rounded p-1"
+                id="workspace"
+                ngbDropdownToggle
+                type="button">
+
+            <!-- Division >768px -->
+            <div class="w-100 align-middle"
+                 id="workspace-lg">
+
+                <!-- SVG -->
+                <!-- TODO - add division logo -->
+                <div class="d-inline-block float-left p-1">
+                    <app-company-svg [svgSize]="'xs'"></app-company-svg>
+                </div>
+
+                <!-- Title -->
+                <div class="d-inline-block p-1">
+                    {{division.name}}
+                </div>
+
+                <!-- SVG -->
+                <div class="d-inline-block float-right p-1">
+                    <i class="bi bi-caret-right"></i>
+                </div>
+            </div>
+
+            <!-- Division <768px -->
+            <div class="w-100"
+                 id="workspace-sm">
+
+                <!-- SVG -->
+                <!-- TODO - add division logo -->
+                <div class="d-inline-block">
+                    <app-company-svg [svgSize]="'xs'"></app-company-svg>
+                </div>
+            </div>
+
+        </button>
+
+        <!-- Division Options -->
+        <div aria-labelledby="workspace"
+             class="p-1"
+             ngbDropdownMenu>
+
+            <!-- Existing Divisions -->
+            <div (click)="changeSelectedDivision(division.id)"
+                 *ngFor="let division of divisions"
+                 class="p-1 align-middle"
+                 ngbDropdownItem>
+
+                <!-- SVG -->
+                <!-- TODO - add division logo -->
+                <div class="d-inline-block p-1">
+                    <app-company-svg [svgSize]="'xs'"></app-company-svg>
+                </div>
+
+                <!-- Title -->
+                <div class="d-inline-block p-1">
+                    <p class="m-0">
+                        {{division.name}}
+                    </p>
+                </div>
+
+                <!-- Default -->
+                <div *ngIf="division.id === defaultDivisionId"
+                     class="d-inline-block float-right p-1">
+                    <p class="m-0">
+                        <small>
+                            Default
+                        </small>
+                    </p>
+                </div>
+
+                <!-- Set as Default -->
+                <div (click)="setDefaultDivision(division.id)"
+                     *ngIf="division.id !== defaultDivisionId"
+                     class="d-inline-block float-right p-1">
+                    <p class="set-default m-0">
+                        <small>
+                            Set as Default
+                        </small>
+                    </p>
+                </div>
+            </div>
+
+            <div class="dropdown-divider m-1"></div>
+
+            <!-- New Division -->
+            <div [routerLink]="companyDivisionsRegisterPath"
+                 class="p-1"
+                 ngbDropdownItem>
+
+                <!-- SVG -->
+                <div class="d-inline-block p-1">
+                    <i class="bi bi-plus"></i>
+                </div>
+
+                <!-- Title -->
+                <div class="d-inline-block p-1">
+                    <p class="m-0">
+                        New Division
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

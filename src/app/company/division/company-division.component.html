@@ -1,0 +1,54 @@
+<!-- Breadcrumb -->
+<app-breadcrumb></app-breadcrumb>
+
+<!-- Company Divisions -->
+<div class="container-xl p-3">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+
+        <!-- Company Division -->
+        <div *ngFor="let division of this.companyDivisionsList; let i = index;"
+             class="col mb-3">
+
+            <!-- Card -->
+            <div class="card flex-row h-100">
+
+                <!-- SVG -->
+                <div class="d-flex align-items-center m-3">
+                    <app-company-svg svgSize="lg"></app-company-svg>
+                </div>
+
+                <!-- Body -->
+                <div class="d-flex flex-column flex-grow-1 align-self-center">
+                    <h5 class="card-body text-center m-0">
+                        {{division.name}}
+                        <a [routerLink]="[companyDivisionsPath, division.id]"
+                           class="stretched-link"></a>
+                    </h5>
+                </div>
+            </div>
+        </div>
+
+        <!-- Register Company Division -->
+        <div class="col mb-3">
+
+            <!-- Card -->
+            <div class="card flex-row h-100">
+
+                <!-- SVG -->
+                <div class="d-flex align-items-center m-3">
+                    <app-company-division-register-svg></app-company-division-register-svg>
+                </div>
+
+                <!-- Body -->
+                <div class="d-flex flex-column flex-grow-1 align-self-center">
+                    <h5 class="card-body text-center m-0">
+                        Register
+                        <a [routerLink]="companyDivisionsRegisterPath"
+                           [title]="companyDivisionsRegisterTitle"
+                           class="stretched-link"></a>
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

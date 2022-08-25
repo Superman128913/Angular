@@ -1,0 +1,82 @@
+<!-- Header -->
+<app-header></app-header>
+
+<!-- Breadcrumb -->
+<app-breadcrumb></app-breadcrumb>
+
+<!-- section start -->
+<!--<section class="p-0">-->
+<!--    <div class="container">-->
+<!--        <div class="row">-->
+<!--            <div class="col-sm-12">-->
+<!--                <table class="table">-->
+<!--                    <thead>-->
+<!--                    <tr>-->
+
+<!--                    </tr>-->
+<!--                    </thead>-->
+<!--                    <tbody>-->
+<!--                    <div *ngIf="rows">-->
+<!--                        <tr *ngFor="let row of rows; let i=index;">-->
+<!--                            <td style="width:33%">{{row.id}}</td>-->
+<!--                            <td style="width:33%">-->
+<!--                                <editable (update)="updateField(i, 'part_number')">-->
+<!--                                    <ng-template viewMode>{{row.part_number}}</ng-template>-->
+<!--                                    <ng-template editMode>-->
+<!--                                        <input [formControl]="getControl(i, 'part_number')" editableOnEnter focusable>-->
+<!--                                    </ng-template>-->
+<!--                                </editable>-->
+<!--                            </td>-->
+<!--                            <td style="width:33%">-->
+<!--                                <editable (update)="updateField(i, 'category')">-->
+<!--                                    <ng-template viewMode>-->
+<!--                                        <div *ngIf="!row.category"><i>ADD</i></div>-->
+<!--                                        {{row.category}}</ng-template>-->
+<!--                                    <ng-template editMode>-->
+<!--                                        <input [formControl]="getControl(i, 'category')" editableOnEnter focusable>-->
+<!--                                    </ng-template>-->
+<!--                                </editable>-->
+<!--                            </td>-->
+
+<!--                            <button (click)="delete(row['id'])">delete</button>-->
+<!--                            <button (click)="copy(i)">copy</button>-->
+<!--                            <button (click)="info(row)">info</button>-->
+
+<!--                        </tr>-->
+<!--                    </div>-->
+<!--                    </tbody>-->
+
+<!--                </table>-->
+<!--                <button (click)="info(this.rows)" *ngIf="rows">Full info</button>-->
+<!--                <button (click)="getUsers()">Show Users</button>-->
+<!--                <br/>-->
+<!--                <div *ngIf="fullInfoVar">-->
+<!--                    -&#45;&#45; Original Entities -&#45;&#45;-->
+<!--                    <br>-->
+<!--                    <div *ngIf="rows">-->
+<!--                        <code>{{rows | json }}</code>-->
+<!--                    </div>-->
+<!--                    <br>-->
+<!--                    <br>-->
+
+<!--                    -&#45;&#45; ArrayForm Value -&#45;&#45;-->
+
+<!--                    <br>-->
+<!--                    <div *ngIf="controls">-->
+<!--                        <code>{{controls.value | json }}</code>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div *ngIf="showUsers">-->
+<!--                    <br>-->
+<!--                    <div *ngIf="users">-->
+<!--                        <code>{{users | json }}</code>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+<!-- Section ends -->
+
+<!-- Footer -->
+<app-footer></app-footer>
